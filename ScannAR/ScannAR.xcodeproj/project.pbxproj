@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -61,7 +61,6 @@
 		AB67B43B2268554C00970E86 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B43A2268554C00970E86 /* FirebaseCore.framework */; };
 		AB67B43D2268554C00970E86 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B43C2268554C00970E86 /* FirebaseInstanceID.framework */; };
 		AB67B43F2268554C00970E86 /* FirebaseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B43E2268554C00970E86 /* FirebaseUI.framework */; };
-		AB67B4412268554C00970E86 /* GoogleToolboxForMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B4402268554C00970E86 /* GoogleToolboxForMac.framework */; };
 		AB67B4432268554C00970E86 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B4422268554C00970E86 /* GTMSessionFetcher.framework */; };
 		AB67B4452268554C00970E86 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B4442268554C00970E86 /* nanopb.framework */; };
 		AB7A3F572252912B003FF186 /* NavigationController+Transparent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7A3F562252912B003FF186 /* NavigationController+Transparent.swift */; };
@@ -189,6 +188,7 @@
 		D1EAB23D22492D9700720412 /* ShipmentRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB23C22492D9700720412 /* ShipmentRepresentation.swift */; };
 		D1EAB23F224934E400720412 /* Product+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB23E224934E400720412 /* Product+Encodable.swift */; };
 		D1EAB2412249379D00720412 /* Shipment+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB2402249379D00720412 /* Shipment+Encodable.swift */; };
+		DCADE8482347907300E77513 /* GoogleToolboxForMac in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B4402268554C00970E86 /* GoogleToolboxForMac */; };
 		F6D48C8102903B2942C50F42 /* Pods_ScannARTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71951511E3C55073885B013 /* Pods_ScannARTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -281,7 +281,7 @@
 		AB67B43A2268554C00970E86 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB67B43C2268554C00970E86 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB67B43E2268554C00970E86 /* FirebaseUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB67B4402268554C00970E86 /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB67B4402268554C00970E86 /* GoogleToolboxForMac */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleToolboxForMac; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB67B4422268554C00970E86 /* GTMSessionFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GTMSessionFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB67B4442268554C00970E86 /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB7A3F562252912B003FF186 /* NavigationController+Transparent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationController+Transparent.swift"; sourceTree = "<group>"; };
@@ -424,12 +424,12 @@
 				AB67B43B2268554C00970E86 /* FirebaseCore.framework in Frameworks */,
 				AB67B43D2268554C00970E86 /* FirebaseInstanceID.framework in Frameworks */,
 				AB67B43F2268554C00970E86 /* FirebaseUI.framework in Frameworks */,
-				AB67B4412268554C00970E86 /* GoogleToolboxForMac.framework in Frameworks */,
 				AB67B4432268554C00970E86 /* GTMSessionFetcher.framework in Frameworks */,
 				AB67B4452268554C00970E86 /* nanopb.framework in Frameworks */,
 				AB67B4372268552500970E86 /* GoogleUtilities.framework in Frameworks */,
 				AB46C54C224C082F0075EF30 /* AuthenticationServices.framework in Frameworks */,
 				7F9527320B64DF0B71A45BDD /* Pods_ScannAR.framework in Frameworks */,
+				DCADE8482347907300E77513 /* GoogleToolboxForMac in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,7 +472,7 @@
 				AB67B43A2268554C00970E86 /* FirebaseCore.framework */,
 				AB67B43C2268554C00970E86 /* FirebaseInstanceID.framework */,
 				AB67B43E2268554C00970E86 /* FirebaseUI.framework */,
-				AB67B4402268554C00970E86 /* GoogleToolboxForMac.framework */,
+				AB67B4402268554C00970E86 /* GoogleToolboxForMac */,
 				AB67B4422268554C00970E86 /* GTMSessionFetcher.framework */,
 				AB67B4442268554C00970E86 /* nanopb.framework */,
 				AB67B4362268552500970E86 /* GoogleUtilities.framework */,
@@ -1306,22 +1306,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ScannAR/Pods-ScannAR-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-ScannAR/Pods-ScannAR-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-ScannAR/Pods-ScannAR-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1334,20 +1323,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ScannAR/Pods-ScannAR-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-ScannAR/Pods-ScannAR-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-ScannAR/Pods-ScannAR-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

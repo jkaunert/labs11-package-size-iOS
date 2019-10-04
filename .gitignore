@@ -129,3 +129,4 @@ ScannAR/.DS_Store
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.gitignore.io/api/swift,xcode,objective-c
+.DS_Store

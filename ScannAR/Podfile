@@ -9,6 +9,7 @@ target 'ScannAR' do
 pod 'Firebase/Core'
 pod 'FirebaseUI/Auth'
 pod 'FirebaseUI/Google'
+pod 'GoogleToolboxForMac'
 
   target 'ScannARTests' do
     inherit! :search_paths
