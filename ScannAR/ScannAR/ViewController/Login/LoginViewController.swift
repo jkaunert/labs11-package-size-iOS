@@ -12,14 +12,14 @@ import FirebaseAuth
 import GoogleSignIn
 
 @objcMembers
-class LoginViewController: UIViewController, GIDSignInUIDelegate {
-
+class LoginViewController: UIViewController, GIDSignInDelegate {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.sendSubviewToBack(backgroundImage)
         // Do any additional setup after loading the view.
-        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance()?.presentingViewController = self
         
         let googleSigninButton = GIDSignInButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
         googleSigninButton.style = .wide
@@ -31,6 +31,17 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     }
     
     // GoogleSignIn target action
+//    func googleSigninButtonTapped(sender: UIButton!) {
+//        print("googleSigninButton tapped")
+//        sender.isHidden = true
+//        DispatchQueue.main.async {
+//            self.reloadInputViews()
+//        }
+//        GIDSignIn.sharedInstance().signIn()
+//
+//    }
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+    }
     func googleSigninButtonTapped(sender: UIButton!) {
         print("googleSigninButton tapped")
         sender.isHidden = true

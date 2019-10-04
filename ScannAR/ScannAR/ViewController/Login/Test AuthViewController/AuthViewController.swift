@@ -11,7 +11,11 @@ import Firebase
 import GoogleSignIn
 
 @objcMembers
-class AuthViewController: UITableViewController, GIDSignInUIDelegate {
+class AuthViewController: UITableViewController, GIDSignInDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+
+    }
+    
     
     func googleSigninButtonTapped(sender: UIButton!) {
         print("googleSigninButton tapped")
@@ -20,7 +24,7 @@ class AuthViewController: UITableViewController, GIDSignInUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().signIn()
         
         let googleSigninButton = GIDSignInButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
