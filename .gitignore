@@ -130,3 +130,5 @@ ScannAR/.DS_Store
 
 # End of https://www.gitignore.io/api/swift,xcode,objective-c
 .DS_Store
+ScannAR/ScannAR/Assets.xcassets/.DS_Store
+ScannAR/ScannAR/.DS_Store
