@@ -32,6 +32,9 @@ class ARScanMenuScreenViewController: UIViewController, UIImagePickerControllerD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+//        scannARTutorialButton.leftImage(image: (tutorialButtonImage?.imageRotatedByDegrees(degrees: 0, flip: true))!)
+//        detectObjectButton.leftImage(image: UIImage(named: "DNO")!)
+//        scanObjectButton.leftImage(image: UIImage(named: "SCN")!)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -42,9 +45,12 @@ class ARScanMenuScreenViewController: UIViewController, UIImagePickerControllerD
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        scannARTutorialButton.leftImage(image: (tutorialButtonImage?.imageRotatedByDegrees(degrees: 0, flip: true))!)
-        detectObjectButton.leftImage(image: UIImage(named: "DNO")!)
-        scanObjectButton.leftImage(image: UIImage(named: "SCN")!)
+        DispatchQueue.main.async {
+            self.scannARTutorialButton.leftImage(image: (self.tutorialButtonImage?.imageRotatedByDegrees(degrees: 0, flip: true))!)
+            self.detectObjectButton.leftImage(image: UIImage(named: "DNO")!)
+            self.scanObjectButton.leftImage(image: UIImage(named: "SCN")!)
+        }
+        
     }
     
     @IBAction func loadSavedObject(_ sender: UIButton) {
@@ -87,7 +93,7 @@ class ARScanMenuScreenViewController: UIViewController, UIImagePickerControllerD
         session = AVCaptureSession()
         device = AVCaptureDevice.default(for: .video)
         
-        var error: NSError?
+        var error: Error?
         do {
             input = try AVCaptureDeviceInput(device: device!)
         } catch  {

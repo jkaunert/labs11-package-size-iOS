@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  ScannAR
 //
-//  Created by ScannAR Team on 3/20/19.
-//
+//  Created by Joshua Kaunert on 3/20/19.
+//  Copyright © 2019 ScannAR Team. All rights reserved.
 
 import ARKit
 import UIKit
@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
-        launchOptions: [NSObject: AnyObject]?) -> Bool {
+        launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         Appearance.setupNavAppearance()
         FirebaseApp.configure()
