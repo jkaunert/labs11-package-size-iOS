@@ -9,22 +9,20 @@
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
-			<key>LSHandlerRank</key>
-			<string>Default</string>
 			<key>CFBundleTypeIconFiles</key>
 			<array>
 				<string></string>
 			</array>
 			<key>CFBundleTypeName</key>
 			<string>USDZ</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>com.pixar.universal-scene-description.mobile</string>
 			</array>
 		</dict>
 		<dict>
-			<key>LSHandlerRank</key>
-			<string>Default</string>
 			<key>CFBundleTypeExtensions</key>
 			<array>
 				<string></string>
@@ -33,6 +31,8 @@
 			<string></string>
 			<key>CFBundleTypeName</key>
 			<string>ARObject</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>com.apple.arobject</string>
@@ -98,7 +98,7 @@
 	<key>UIRequiresFullScreen</key>
 	<true/>
 	<key>UIStatusBarStyle</key>
-	<string>UIColor(named: &quot;appARKADarkBlue&quot;)</string>
+	<string>UIColor(named: "appARKADarkBlue")</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
