@@ -81,7 +81,7 @@ class BoundingBoxSide: SCNNode {
         return Float(capturedTiles.count) / Float(tiles.count)
     }
     
-    init(_ face: Position, boundingBoxExtent extent: float3, color: UIColor = UIColor.appBrown) {
+    init(_ face: Position, boundingBoxExtent extent: float3, color: UIColor = .appBrown) {
         self.color = color
         self.face = face
         super.init()
