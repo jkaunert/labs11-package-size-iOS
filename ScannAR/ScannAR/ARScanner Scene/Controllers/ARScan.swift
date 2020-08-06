@@ -37,55 +37,55 @@ class ARScan {
         set {
             // Check that preconditions for the state change are met.
             switch newValue {
-            case .ready:
-                break
-            case .defineBoundingBox where !boundingBoxExists && !ghostBoundingBoxExists:
-                print("Error: Ghost bounding box not yet created.")
-                return
-            case .scanning where !boundingBoxExists, .adjustingOrigin where !boundingBoxExists:
-                print("Error: Bounding box not yet created.")
-                return
-            case .scanning where stateValue == .defineBoundingBox && !isReasonablySized,
-                 .adjustingOrigin where stateValue == .scanning && !isReasonablySized:
-                
-                let title = "Scanned object too big or small"
-                let message = """
+                case .ready:
+                    break
+                case .defineBoundingBox where !boundingBoxExists && !ghostBoundingBoxExists:
+                    print("Error: Ghost bounding box not yet created.")
+                    return
+                case .scanning where !boundingBoxExists, .adjustingOrigin where !boundingBoxExists:
+                    print("Error: Bounding box not yet created.")
+                    return
+                case .scanning where stateValue == .defineBoundingBox && !isReasonablySized,
+                     .adjustingOrigin where stateValue == .scanning && !isReasonablySized:
+                    
+                    let title = "Scanned object too big or small"
+                    let message = """
                 Each dimension of the bounding box should be at least 1 centimeters and not exceed 5 meters.
                 In addition, the volume of the bounding box should be at least 500 cubic cm.
                 Do you want to go back and adjust the bounding box of the scanned object?
                 """
-                let previousState = stateValue
-                ARScanViewController.instance?.showAlert(title: title, message: message, buttonTitle: "Yes", showCancel: true) { _ in
-                    self.state = previousState
+                    let previousState = stateValue
+                    ARScanViewController.instance?.showAlert(title: title, message: message, buttonTitle: "Yes", showCancel: true) { _ in
+                        self.state = previousState
                 }
-            case .scanning:
-                // When entering the scanning state, take a screenshot of the object to be scanned.
-                // This screenshot will later be saved in the *.arobject file
-                createScreenshot()
-            case .adjustingOrigin where stateValue == .scanning && qualityIsLow:
-                let title = "Not enough detail"
-                let message = """
-                This scan has not enough detail (it contains \(pointCloud.count) features - aim for at least \(ARScan.minFeatureCount)).
-                It is unlikely that this scan will be successful.
-                Do you want to go back and continue the scan?
-                """
-                ARScanViewController.instance?.showAlert(title: title, message: message, buttonTitle: "Yes", showCancel: true) { _ in
-                    self.state = .scanning
-                }
-            case .adjustingOrigin where stateValue == .scanning:
-                if let boundingBox = scannedObject.boundingBox, boundingBox.progressPercentage < 100 {
-                    let title = "Scan not complete."
+                case .scanning:
+                    // When entering the scanning state, take a screenshot of the object to be scanned.
+                    // This screenshot will later be saved in the *.arobject file
+                    createScreenshot()
+                case .adjustingOrigin where stateValue == .scanning && qualityIsLow:
+                    let title = "Not enough detail"
                     let message = """
-                    The object was not scanned from all sides, scanning progress is \(boundingBox.progressPercentage)%.
+                    This scan has not enough detail (it contains \(pointCloud.count) features - aim for at least \(ARScan.minFeatureCount)).
                     It is unlikely that this scan will be successful.
                     Do you want to go back and continue the scan?
                     """
                     ARScanViewController.instance?.showAlert(title: title, message: message, buttonTitle: "Yes", showCancel: true) { _ in
                         self.state = .scanning
-                    }
                 }
-            default:
-                break
+                case .adjustingOrigin where stateValue == .scanning:
+                    if let boundingBox = scannedObject.boundingBox, boundingBox.progressPercentage < 100 {
+                        let title = "Scan not complete."
+                        let message = """
+                        The object was not scanned from all sides, scanning progress is \(boundingBox.progressPercentage)%.
+                        It is unlikely that this scan will be successful.
+                        Do you want to go back and continue the scan?
+                        """
+                        ARScanViewController.instance?.showAlert(title: title, message: message, buttonTitle: "Yes", showCancel: true) { _ in
+                            self.state = .scanning
+                        }
+                }
+                default:
+                    break
             }
             // Apply the new state
             stateValue = newValue
@@ -151,12 +151,12 @@ class ARScan {
     private func applicationStateChanged(_ notification: Notification) {
         guard let appState = notification.userInfo?[ARScanViewController.appStateUserInfoKey] as? ARScanViewController.State else { return }
         switch appState {
-        case .scanning:
-            scannedObject.isHidden = false
-            pointCloud.isHidden = false
-        default:
-            scannedObject.isHidden = true
-            pointCloud.isHidden = true
+            case .scanning:
+                scannedObject.isHidden = false
+                pointCloud.isHidden = false
+            default:
+                scannedObject.isHidden = true
+                pointCloud.isHidden = true
         }
     }
     
@@ -167,29 +167,25 @@ class ARScan {
         
         if state == .defineBoundingBox || state == .scanning {
             switch gesture.state {
-            case .possible:
-                break
-            case .began:
-                scannedObject.boundingBox?.startSidePlaneDrag(screenPos: gesture.location(in: sceneView))
-            case .changed:
-                scannedObject.boundingBox?.updateSidePlaneDrag(screenPos: gesture.location(in: sceneView))
-            case .failed, .cancelled, .ended:
-                scannedObject.boundingBox?.endSidePlaneDrag()
-            @unknown default:
-                break
+                case .possible:
+                    break
+                case .began:
+                    scannedObject.boundingBox?.startSidePlaneDrag(screenPos: gesture.location(in: sceneView))
+                case .changed:
+                    scannedObject.boundingBox?.updateSidePlaneDrag(screenPos: gesture.location(in: sceneView))
+                case .failed, .cancelled, .ended:
+                    scannedObject.boundingBox?.endSidePlaneDrag()
             }
         } else if state == .adjustingOrigin {
             switch gesture.state {
-            case .possible:
-                break
-            case .began:
-                scannedObject.origin?.startAxisDrag(screenPos: gesture.location(in: sceneView))
-            case .changed:
-                scannedObject.origin?.updateAxisDrag(screenPos: gesture.location(in: sceneView))
-            case .failed, .cancelled, .ended:
-                scannedObject.origin?.endAxisDrag()
-            @unknown default:
-                break
+                case .possible:
+                    break
+                case .began:
+                    scannedObject.origin?.startAxisDrag(screenPos: gesture.location(in: sceneView))
+                case .changed:
+                    scannedObject.origin?.updateAxisDrag(screenPos: gesture.location(in: sceneView))
+                case .failed, .cancelled, .ended:
+                    scannedObject.origin?.endAxisDrag()
             }
         }
     }
@@ -201,41 +197,37 @@ class ARScan {
         
         if state == .defineBoundingBox || state == .scanning {
             switch gesture.state {
-            case .possible:
-                break
-            case .began:
-                if gesture.numberOfTouches == 2 {
-                    scannedObject.boundingBox?.startGroundPlaneDrag(screenPos: gesture.offsetLocation(in: sceneView))
+                case .possible:
+                    break
+                case .began:
+                    if gesture.numberOfTouches == 2 {
+                        scannedObject.boundingBox?.startGroundPlaneDrag(screenPos: gesture.offsetLocation(in: sceneView))
                 }
-            case .changed where gesture.isThresholdExceeded:
-                if gesture.numberOfTouches == 2 {
-                    scannedObject.boundingBox?.updateGroundPlaneDrag(screenPos: gesture.offsetLocation(in: sceneView))
+                case .changed where gesture.isThresholdExceeded:
+                    if gesture.numberOfTouches == 2 {
+                        scannedObject.boundingBox?.updateGroundPlaneDrag(screenPos: gesture.offsetLocation(in: sceneView))
                 }
-            case .changed:
-                break
-            case .failed, .cancelled, .ended:
-                scannedObject.boundingBox?.endGroundPlaneDrag()
-            @unknown default:
-                break
+                case .changed:
+                    break
+                case .failed, .cancelled, .ended:
+                    scannedObject.boundingBox?.endGroundPlaneDrag()
             }
         } else if state == .adjustingOrigin {
             switch gesture.state {
-            case .possible:
-                break
-            case .began:
-                if gesture.numberOfTouches == 2 {
-                    scannedObject.origin?.startPlaneDrag(screenPos: gesture.offsetLocation(in: sceneView))
+                case .possible:
+                    break
+                case .began:
+                    if gesture.numberOfTouches == 2 {
+                        scannedObject.origin?.startPlaneDrag(screenPos: gesture.offsetLocation(in: sceneView))
                 }
-            case .changed where gesture.isThresholdExceeded:
-                if gesture.numberOfTouches == 2 {
-                    scannedObject.origin?.updatePlaneDrag(screenPos: gesture.offsetLocation(in: sceneView))
+                case .changed where gesture.isThresholdExceeded:
+                    if gesture.numberOfTouches == 2 {
+                        scannedObject.origin?.updatePlaneDrag(screenPos: gesture.offsetLocation(in: sceneView))
                 }
-            case .changed:
-                break
-            case .failed, .cancelled, .ended:
-                scannedObject.origin?.endPlaneDrag()
-            @unknown default:
-                break
+                case .changed:
+                    break
+                case .failed, .cancelled, .ended:
+                    scannedObject.origin?.endPlaneDrag()
             }
         }
     }
@@ -263,29 +255,25 @@ class ARScan {
         
         if state == .defineBoundingBox || state == .scanning {
             switch gesture.state {
-            case .possible:
-                break
-            case .began:
-                scannedObject.boundingBox?.startSideDrag(screenPos: gesture.location(in: sceneView))
-            case .changed:
-                scannedObject.boundingBox?.updateSideDrag(screenPos: gesture.location(in: sceneView))
-            case .failed, .cancelled, .ended:
-                scannedObject.boundingBox?.endSideDrag()
-            @unknown default:
-                break
+                case .possible:
+                    break
+                case .began:
+                    scannedObject.boundingBox?.startSideDrag(screenPos: gesture.location(in: sceneView))
+                case .changed:
+                    scannedObject.boundingBox?.updateSideDrag(screenPos: gesture.location(in: sceneView))
+                case .failed, .cancelled, .ended:
+                    scannedObject.boundingBox?.endSideDrag()
             }
         } else if state == .adjustingOrigin {
             switch gesture.state {
-            case .possible:
-                break
-            case .began:
-                scannedObject.origin?.startAxisDrag(screenPos: gesture.location(in: sceneView))
-            case .changed:
-                scannedObject.origin?.updateAxisDrag(screenPos: gesture.location(in: sceneView))
-            case .failed, .cancelled, .ended:
-                scannedObject.origin?.endAxisDrag()
-            @unknown default:
-                break
+                case .possible:
+                    break
+                case .began:
+                    scannedObject.origin?.startAxisDrag(screenPos: gesture.location(in: sceneView))
+                case .changed:
+                    scannedObject.origin?.updateAxisDrag(screenPos: gesture.location(in: sceneView))
+                case .failed, .cancelled, .ended:
+                    scannedObject.origin?.endAxisDrag()
             }
         }
     }
@@ -313,29 +301,25 @@ class ARScan {
         
         if state == .defineBoundingBox || state == .scanning {
             switch gesture.state {
-            case .possible, .began:
-                break
-            case .changed where gesture.isThresholdExceeded:
-                scannedObject.scaleBoundingBox(scale: gesture.scale)
-                gesture.scale = 1
-            case .changed:
-                break
-            case .failed, .cancelled, .ended:
-                break
-            @unknown default:
-                break
+                case .possible, .began:
+                    break
+                case .changed where gesture.isThresholdExceeded:
+                    scannedObject.scaleBoundingBox(scale: gesture.scale)
+                    gesture.scale = 1
+                case .changed:
+                    break
+                case .failed, .cancelled, .ended:
+                    break
             }
         } else if state == .adjustingOrigin {
             switch gesture.state {
-            case .possible, .began:
-                break
-            case .changed where gesture.isThresholdExceeded:
-                scannedObject.origin?.updateScale(Float(gesture.scale))
-                gesture.scale = 1
-            case .changed, .failed, .cancelled, .ended:
-                break
-            @unknown default:
-                break
+                case .possible, .began:
+                    break
+                case .changed where gesture.isThresholdExceeded:
+                    scannedObject.origin?.updateScale(Float(gesture.scale))
+                    gesture.scale = 1
+                case .changed, .failed, .cancelled, .ended:
+                    break
             }
         }
     }
@@ -372,7 +356,7 @@ class ARScan {
                     timeOfLastReferenceObjectCreation = now
                     isBusyCreatingReferenceObject = true
                     sceneView.session.createReferenceObject(transform: boundingBox.simdWorldTransform,
-                                                            center: SIMD3<Float>(),
+                                                            center: float3(),
                                                             extent: boundingBox.extent) { object, error in
                                                                 if let referenceObject = object {
                                                                     // Pass the feature points to the point cloud visualization.
@@ -451,7 +435,7 @@ class ARScan {
         // Extract the reference object based on the position & orientation of the bounding box.
         sceneView.session.createReferenceObject(
             transform: boundingBox.simdWorldTransform,
-            center: SIMD3<Float>(), extent: boundingBox.extent,
+            center: float3(), extent: boundingBox.extent,
             completionHandler: { object, error in
                 if let referenceObject = object {
                     // Adjust the object's origin with the user-provided transform.
@@ -474,16 +458,16 @@ class ARScan {
         
         var orientation: UIImage.Orientation = .right
         switch UIDevice.current.orientation {
-        case .portrait:
-            orientation = .right
-        case .portraitUpsideDown:
-            orientation = .left
-        case .landscapeLeft:
-            orientation = .up
-        case .landscapeRight:
-            orientation = .down
-        default:
-            break
+            case .portrait:
+                orientation = .right
+            case .portraitUpsideDown:
+                orientation = .left
+            case .landscapeLeft:
+                orientation = .up
+            case .landscapeRight:
+                orientation = .down
+            default:
+                break
         }
         
         let ciImage = CIImage(cvPixelBuffer: frame.capturedImage)
@@ -492,9 +476,6 @@ class ARScan {
             screenshot = UIImage(cgImage: cgimage, scale: 1.0, orientation: orientation)
         }
     }
-    
-    
-    
-    
-    
+
 }
+
