@@ -175,6 +175,8 @@ class ARScan {
                 scannedObject.boundingBox?.updateSidePlaneDrag(screenPos: gesture.location(in: sceneView))
             case .failed, .cancelled, .ended:
                 scannedObject.boundingBox?.endSidePlaneDrag()
+            @unknown default:
+                break
             }
         } else if state == .adjustingOrigin {
             switch gesture.state {
@@ -186,6 +188,8 @@ class ARScan {
                 scannedObject.origin?.updateAxisDrag(screenPos: gesture.location(in: sceneView))
             case .failed, .cancelled, .ended:
                 scannedObject.origin?.endAxisDrag()
+            @unknown default:
+                break
             }
         }
     }
@@ -211,6 +215,8 @@ class ARScan {
                 break
             case .failed, .cancelled, .ended:
                 scannedObject.boundingBox?.endGroundPlaneDrag()
+            @unknown default:
+                break
             }
         } else if state == .adjustingOrigin {
             switch gesture.state {
@@ -228,6 +234,8 @@ class ARScan {
                 break
             case .failed, .cancelled, .ended:
                 scannedObject.origin?.endPlaneDrag()
+            @unknown default:
+                break
             }
         }
     }
@@ -263,6 +271,8 @@ class ARScan {
                 scannedObject.boundingBox?.updateSideDrag(screenPos: gesture.location(in: sceneView))
             case .failed, .cancelled, .ended:
                 scannedObject.boundingBox?.endSideDrag()
+            @unknown default:
+                break
             }
         } else if state == .adjustingOrigin {
             switch gesture.state {
@@ -274,6 +284,8 @@ class ARScan {
                 scannedObject.origin?.updateAxisDrag(screenPos: gesture.location(in: sceneView))
             case .failed, .cancelled, .ended:
                 scannedObject.origin?.endAxisDrag()
+            @unknown default:
+                break
             }
         }
     }
@@ -310,6 +322,8 @@ class ARScan {
                 break
             case .failed, .cancelled, .ended:
                 break
+            @unknown default:
+                break
             }
         } else if state == .adjustingOrigin {
             switch gesture.state {
@@ -319,6 +333,8 @@ class ARScan {
                 scannedObject.origin?.updateScale(Float(gesture.scale))
                 gesture.scale = 1
             case .changed, .failed, .cancelled, .ended:
+                break
+            @unknown default:
                 break
             }
         }
@@ -356,7 +372,7 @@ class ARScan {
                     timeOfLastReferenceObjectCreation = now
                     isBusyCreatingReferenceObject = true
                     sceneView.session.createReferenceObject(transform: boundingBox.simdWorldTransform,
-                                                            center: float3(),
+                                                            center: SIMD3<Float>(),
                                                             extent: boundingBox.extent) { object, error in
                                                                 if let referenceObject = object {
                                                                     // Pass the feature points to the point cloud visualization.
@@ -435,7 +451,7 @@ class ARScan {
         // Extract the reference object based on the position & orientation of the bounding box.
         sceneView.session.createReferenceObject(
             transform: boundingBox.simdWorldTransform,
-            center: float3(), extent: boundingBox.extent,
+            center: SIMD3<Float>(), extent: boundingBox.extent,
             completionHandler: { object, error in
                 if let referenceObject = object {
                     // Adjust the object's origin with the user-provided transform.

@@ -69,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             guard let authentication = user.authentication else { return }
             let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                            accessToken: authentication.accessToken)
-            Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
+            Auth.auth().signIn(with: credential) { (authResult, error) in
                 if let error = error {
                     print(error)
                     return
@@ -92,7 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 dict["displayName"] = user.displayName
                 dict["email"] = user.email
                 dict["photoURL"] = user.photoURL?.absoluteString
-                print("\(user.email)")
+                print("\(String(describing: user.email))")
                 
                 let scannARNetworkingController = ScannARNetworkController.shared
                 scannARNetworkingController.postForAuthenticationToken(dict: dict) { (string, error) in

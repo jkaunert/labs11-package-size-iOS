@@ -145,17 +145,20 @@ extension CardsViewController: CardCollectionViewCellActionsHandler {
     func savePackageConfigForLaterButtonTapped(cell: CardCollectionViewCell) {
         if let index = cardsView.indexPath(for: cell)?.row {
             // Save package config for later without adding to shipment
+            print(index)
         }
     }
     
     func addPackageConfigButtonTapped(cell: CardCollectionViewCell) {
         if let index = cardsView.indexPath(for: cell)?.row {
             // Add configuration to a shipment
+            print(index)
         }
     }
     
     func preview3DButtonTapped(cell: CardCollectionViewCell) {
         if let index = cardsView.indexPath(for: cell)?.row {
+            print(index)
             performSegue(withIdentifier: "Preview3DSegue", sender: self)
         }
     }

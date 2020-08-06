@@ -41,7 +41,7 @@ class ObjectOriginAxis: SCNNode {
         
         var color: UIColor = .clear
         var texture: UIImage?
-        var dimensions: float3
+        var dimensions: SIMD3<Float>
         let position = axis.normal * (length / 2.0)
         let axisHandlePosition = axis.normal * length
         
@@ -49,15 +49,15 @@ class ObjectOriginAxis: SCNNode {
         case .x:
             color = UIColor.clear
             texture = #imageLiteral(resourceName: "handle_red")
-            dimensions = float3(length, thickness, thickness)
+            dimensions = SIMD3<Float>(length, thickness, thickness)
         case .y:
             color = UIColor.clear
             texture = #imageLiteral(resourceName: "handle_green")
-            dimensions = float3(thickness, length, thickness)
+            dimensions = SIMD3<Float>(thickness, length, thickness)
         case .z:
             color = UIColor.clear
             texture = #imageLiteral(resourceName: "handle_blue")
-            dimensions = float3(thickness, thickness, length)
+            dimensions = SIMD3<Float>(thickness, thickness, length)
         }
         
         let axisGeo = SCNBox(width: CGFloat(dimensions.x),

@@ -13,7 +13,7 @@ class ShipmentsDetailViewController: UIViewController, BottomButtonDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        shipment = Shipment(carrierName: "USPS",dimensions: "42x42x42",productNames: ["yaya", "nana", "ohoh", "noodles", "too"], productUuids: nil, shipmentTrackingDetail: nil, shippedDate: Date(), dateArrived: Date(), lastUpdated: Date(), shippingType: "Snail Mail",   totalWeight: 42.0, totalValue: 42.0, status: 2,  trackingNumber: "92748999985493513036555961", shippedTo: "1 Infinite Loop, Cupertino, CA", uuid: UUID())
         // Do any additional setup after loading the view.
         updateViews()
         
@@ -84,7 +84,7 @@ class ShipmentsDetailViewController: UIViewController, BottomButtonDelegate {
         var predicateArray: [NSPredicate] = []
         for uuidString in productUUIDStrings {
             let uuid = UUID(uuidString: uuidString)
-            let predicate = NSPredicate(format: "uuid = %@", argumentArray: [uuid])
+            let predicate = NSPredicate(format: "uuid = %@", argumentArray: [uuid!])
             predicateArray.append(predicate)
             print(predicate)
         }
@@ -103,7 +103,7 @@ class ShipmentsDetailViewController: UIViewController, BottomButtonDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        guard let destVC = segue.destination as? ShipmentTrackingMainViewController else { fatalError("Should be send Segue to ShipmentDetailVC but is not")}
+        guard let destVC = segue.destination as? MapViewController else { fatalError("Should be send Segue to ShipmentDetailVC but is not")}
         destVC.shipment = self.shipment
 //        let transition: CATransition = CATransition()
 //        transition.duration = 0.2

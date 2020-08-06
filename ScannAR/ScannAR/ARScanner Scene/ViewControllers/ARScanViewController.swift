@@ -598,6 +598,7 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         let yString = String(format: "height: %.2f", box.extent.y * 39.3701)
         let zString = String(format: "width: %.2f", box.extent.z * 39.3701)
         let distanceFromCamera = String(format: "%.2f in", distance(box.simdWorldPosition, cameraPos) * 39.3701)
+        print("Current bounding box: \(distanceFromCamera) away\n\(xString) \(yString) \(zString)")
         //        displayMessage("Current bounding box: \(distanceFromCamera) away\n\(xString) \(yString) \(zString)", expirationTime: 1.5)
     }
     
@@ -609,6 +610,8 @@ class ARScanViewController: UIViewController, ARSCNViewDelegate, ARSessionDelega
         let xString = String(format: "x: %.2f", node.position.x * 39.3701)
         let yString = String(format: "y: %.2f", node.position.y * 39.3701)
         let zString = String(format: "z: %.2f", node.position.z * 39.3701)
+        
+        print("Current local origin position in inches:\n\(xString) \(yString) \(zString)")
         //        displayMessage("Current local origin position in inches:\n\(xString) \(yString) \(zString)", expirationTime: 1.5)
     }
     

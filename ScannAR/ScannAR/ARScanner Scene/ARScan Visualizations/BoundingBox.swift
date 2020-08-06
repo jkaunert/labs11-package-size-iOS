@@ -17,7 +17,7 @@ class BoundingBox: SCNNode {
     static let scanPercentageUserInfoKey = "ScanPercentage"
     static let boxExtentUserInfoKey = "BoxExtent"
     
-    var extent: float3 = float3(0.1, 0.1, 0.1) {
+    var extent: SIMD3<Float> = SIMD3<Float>(0.1, 0.1, 0.1) {
         didSet {
             extent = max(extent, minSize)
             updateVisualization()
@@ -26,7 +26,7 @@ class BoundingBox: SCNNode {
         }
     }
     
-    override var simdPosition: float3 {
+    override var simdPosition: SIMD3<Float> {
         willSet(newValue) {
             if distance(newValue, simdPosition) > 0.001 {
                 NotificationCenter.default.post(name: BoundingBox.positionChangedNotification,
@@ -43,8 +43,8 @@ class BoundingBox: SCNNode {
     private struct SideDrag {
         var side: BoundingBoxSide
         var planeTransform: float4x4
-        var beginWorldPos: float3
-        var beginExtent: float3
+        var beginWorldPos: SIMD3<Float>
+        var beginExtent: SIMD3<Float>
     }
     
     private var currentSideDrag: SideDrag?
@@ -59,7 +59,7 @@ class BoundingBox: SCNNode {
     
     private var color = UIColor.appBrown
     
-    private var cameraRaysAndHitLocations: [(ray: Ray, hitLocation: float3)] = []
+    private var cameraRaysAndHitLocations: [(ray: Ray, hitLocation: SIMD3<Float>)] = []
     private var frameCounter: Int = 0
     
     var progressPercentage: Int = 0
@@ -95,8 +95,8 @@ class BoundingBox: SCNNode {
         }
     }
     
-    func fitOverPointCloud(_ pointCloud: ARPointCloud, focusPoint: float3?) {
-        var filteredPoints: [float3] = []
+    func fitOverPointCloud(_ pointCloud: ARPointCloud, focusPoint: SIMD3<Float>?) {
+        var filteredPoints: [SIMD3<Float>] = []
         
         for point in pointCloud.points {
             if let focus = focusPoint {
@@ -190,9 +190,9 @@ class BoundingBox: SCNNode {
                 side.showZAxisExtensions()
                 
                 let sideNormalInWorld = normalize(self.simdConvertVector(side.normal, to: nil) -
-                    self.simdConvertVector(float3(repeating: 0), to: nil))
+                    self.simdConvertVector(SIMD3<Float>(repeating: 0), to: nil))
                 
-                let ray = Ray(origin: float3(result.worldCoordinates), direction: sideNormalInWorld)
+                let ray = Ray(origin: SIMD3<Float>(result.worldCoordinates), direction: sideNormalInWorld)
                 let transform = dragPlaneTransform(for: ray, cameraPos: camera.simdWorldPosition)
                 
                 currentSideDrag = SideDrag(side: side, planeTransform: transform, beginWorldPos: self.simdWorldPosition, beginExtent: self.extent)
@@ -244,12 +244,12 @@ class BoundingBox: SCNNode {
                 side.showYAxisExtensions()
                 
                 let sideNormalInWorld = normalize(self.simdConvertVector(side.dragAxis.normal, to: nil) -
-                    self.simdConvertVector(float3(repeating: 0), to: nil))
+                    self.simdConvertVector(SIMD3<Float>(repeating: 0), to: nil))
                 
-                let planeNormalRay = Ray(origin: float3(result.worldCoordinates), direction: sideNormalInWorld)
+                let planeNormalRay = Ray(origin: SIMD3<Float>(result.worldCoordinates), direction: sideNormalInWorld)
                 let transform = dragPlaneTransform(forPlaneNormal: planeNormalRay, camera: camera)
                 
-                var offset = float3()
+                var offset = SIMD3<Float>()
                 if let hitPos = sceneView.unprojectPoint(screenPos, ontoPlane: transform) {
                     offset = self.simdWorldPosition - hitPos
                 }
@@ -287,7 +287,7 @@ class BoundingBox: SCNNode {
     
     func startGroundPlaneDrag(screenPos: CGPoint) {
         let dragPlane = self.simdWorldTransform
-        var offset = float3(repeating: 0)
+        var offset = SIMD3<Float>(repeating: 0)
         if let hitPos = sceneView.unprojectPoint(screenPos, ontoPlane: dragPlane) {
             offset = self.simdWorldPosition - hitPos
         }
@@ -427,7 +427,7 @@ class BoundingBox: SCNNode {
     
     /// Returns true if the given location differs from all hit locations in the cameraRaysAndHitLocations array
     /// by at least the threshold distance.
-    func isHitLocationDifferentFromPreviousRayHitTests(_ location: float3) -> Bool {
+    func isHitLocationDifferentFromPreviousRayHitTests(_ location: SIMD3<Float>) -> Bool {
         let distThreshold: Float = 0.03
         for hitTest in cameraRaysAndHitLocations.reversed() {
             if distance(hitTest.hitLocation, location) < distThreshold {
@@ -437,7 +437,7 @@ class BoundingBox: SCNNode {
         return true
     }
     
-    private func tile(hitBy ray: Ray) -> (tile: Tile, hitLocation: float3)? {
+    private func tile(hitBy ray: Ray) -> (tile: Tile, hitLocation: SIMD3<Float>)? {
         // Perform hit test with given ray
         let hitResults = self.sceneView.scene.rootNode.hitTestWithSegment(from: ray.origin, to: ray.endPoint, options: [
             .ignoreHiddenNodes: false,
@@ -452,7 +452,7 @@ class BoundingBox: SCNNode {
                 }
                 
                 // Each ray should only hit one tile, so we can stop iterating through results if a hit was successful.
-                return (tile: tile, hitLocation: float3(result.worldCoordinates))
+                return (tile: tile, hitLocation: SIMD3<Float>(result.worldCoordinates))
             }
         }
         return nil
@@ -481,7 +481,7 @@ class BoundingBox: SCNNode {
     func tryToAlignWithPlanes(_ anchors: [ARAnchor]) {
         guard !hasBeenAdjustedByUser, ARScanViewController.instance?.scan?.state == .defineBoundingBox else { return }
         
-        let bottomCenter = float3(simdPosition.x, simdPosition.y - extent.y / 2, simdPosition.z)
+        let bottomCenter = SIMD3<Float>(simdPosition.x, simdPosition.y - extent.y / 2, simdPosition.z)
         
         var distanceToNearestPlane = Float.greatestFiniteMagnitude
         var offsetToNearestPlaneOnY: Float = 0
@@ -537,7 +537,7 @@ class BoundingBox: SCNNode {
         }
     }
     
-    func contains(_ pointInWorld: float3) -> Bool {
+    func contains(_ pointInWorld: SIMD3<Float>) -> Bool {
         let localMin = -extent / 2
         let localMax = extent / 2
         

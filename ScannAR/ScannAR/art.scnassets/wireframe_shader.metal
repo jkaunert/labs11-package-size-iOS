@@ -13,13 +13,13 @@ SceneKit shader modifier to render bounding box edges with distance-based fade.
 #pragma transparent
 #pragma body
 
-float3 modelPosition = scn_node.modelTransform[3].xyz;
-float3 viewPosition = scn_frame.inverseViewTransform[3].xyz;
+SIMD3<Float> modelPosition = scn_node.modelTransform[3].xyz;
+SIMD3<Float> viewPosition = scn_frame.inverseViewTransform[3].xyz;
 float distance = length(modelPosition - viewPosition);
 
-float3 bBoxMin = scn_node.boundingBox[0];
-float3 bBoxMax = scn_node.boundingBox[1];
-float3 size = bBoxMax - bBoxMin;
+SIMD3<Float> bBoxMin = scn_node.boundingBox[0];
+SIMD3<Float> bBoxMax = scn_node.boundingBox[1];
+SIMD3<Float> size = bBoxMax - bBoxMin;
 float bBoxDiag = length(size);
 
 ////////////////////////////////////////////////////////////////
@@ -40,9 +40,9 @@ float v = _surface.diffuseTexcoord.y;
 
 // Compute scaling of line thickness based on bounding box size
 float2 scale;
-if (abs((scn_node.inverseModelViewTransform * float4(_surface.normal, 0.0)).x) > 0.5) {
+if (abs((scn_node.inverseModelViewTransform * SIMD4<Float>(_surface.normal, 0.0)).x) > 0.5) {
     scale = size.zy;
-} else if (abs((scn_node.inverseModelViewTransform * float4(_surface.normal, 0.0)).y) > 0.5) {
+} else if (abs((scn_node.inverseModelViewTransform * SIMD4<Float>(_surface.normal, 0.0)).y) > 0.5) {
     scale = size.xz;
 } else {
     scale = size.xy;
