@@ -11,10 +11,10 @@ import ARKit
 class DetectedPointCloud: SCNNode, PointCloud {
     
     private let referenceObjectPointCloud: ARPointCloud
-    private let center: SIMD3<Float>
-    private let extent: SIMD3<Float>
+    private let center: float3
+    private let extent: float3
     
-    init(referenceObjectPointCloud: ARPointCloud, center: SIMD3<Float>, extent: SIMD3<Float>) {
+    init(referenceObjectPointCloud: ARPointCloud, center: float3, extent: float3) {
         self.referenceObjectPointCloud = referenceObjectPointCloud
         self.center = center
         self.extent = extent
@@ -34,9 +34,9 @@ class DetectedPointCloud: SCNNode, PointCloud {
     func updateVisualization(for currentPointCloud: ARPointCloud) {
         guard !self.isHidden else { return }
         
-        let min: SIMD3<Float> = simdPosition + center - extent / 2
-        let max: SIMD3<Float> = simdPosition + center + extent / 2
-        var inlierPoints: [SIMD3<Float>] = []
+        let min: float3 = simdPosition + center - extent / 2
+        let max: float3 = simdPosition + center + extent / 2
+        var inlierPoints: [float3] = []
         
         for point in currentPointCloud.points {
             let localPoint = self.simdConvertPosition(point, from: nil)
