@@ -31,7 +31,7 @@ class Tile: SCNNode {
             let innerPlane = SCNPlane(width: plane.width, height: plane.height)
             innerPlane.materials = [SCNMaterial.material(withDiffuse: UIColor.appBrown.withAlphaComponent(0.8), isDoubleSided: false)]
             let innerNode = SCNNode(geometry: innerPlane)
-            innerNode.simdEulerAngles = SIMD3<Float>(0, .pi, 0)
+            innerNode.simdEulerAngles = float3(0, .pi, 0)
             addChildNode(innerNode)
         }
     }
@@ -40,3 +40,4 @@ class Tile: SCNNode {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
