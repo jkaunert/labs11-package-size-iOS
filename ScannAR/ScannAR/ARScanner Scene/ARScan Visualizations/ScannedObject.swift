@@ -22,7 +22,7 @@ class ScannedObject: SCNNode {
     
     private var sceneView: ARSCNView
     
-    override var simdPosition: SIMD3<Float> {
+    override var simdPosition: float3 {
         didSet {
             NotificationCenter.default.post(name: ScannedObject.positionChangedNotification,
                                             object: self)
@@ -119,7 +119,7 @@ class ScannedObject: SCNNode {
         
         // Set the initial extent of the bounding box based on the distance to the camera.
         let newExtent = Float(result.distance / 3)
-        boundingBox.extent = SIMD3<Float>(repeating: newExtent)
+        boundingBox.extent = float3(repeating: newExtent)
         
         // Set the position of scanned object to a point on the ray which is offset
         // from the hit test result by half of the bounding boxes' extent.
@@ -156,7 +156,7 @@ class ScannedObject: SCNNode {
         self.simdWorldPosition = result.worldTransform.position + boundingBoxOffset
         
         if let boundingBox = ghostBoundingBox {
-            boundingBox.extent = SIMD3<Float>(repeating: newExtent)
+            boundingBox.extent = float3(repeating: newExtent)
             // Change the orientation of the bounding box to always face the user.
             if let currentFrame = sceneView.session.currentFrame {
                 eulerAngles.y = currentFrame.camera.eulerAngles.y
@@ -165,7 +165,7 @@ class ScannedObject: SCNNode {
             let boundingBox = BoundingBox(sceneView)
             boundingBox.opacity = 0.25
             self.addChildNode(boundingBox)
-            boundingBox.extent = SIMD3<Float>(repeating: newExtent)
+            boundingBox.extent = float3(repeating: newExtent)
             ghostBoundingBox = boundingBox
             
             NotificationCenter.default.post(name: ScannedObject.ghostBoundingBoxCreatedNotification, object: nil)
@@ -179,7 +179,7 @@ class ScannedObject: SCNNode {
         origin.simdPosition.y = -boundingBox.extent.y / 2
     }
     
-    func updatePosition(_ worldPos: SIMD3<Float>) {
+    func updatePosition(_ worldPos: float3) {
         let offset = worldPos - self.simdWorldPosition
         self.simdWorldPosition = worldPos
         
@@ -194,7 +194,7 @@ class ScannedObject: SCNNode {
         if let boundingBox = boundingBox {
             boundingBox.updateOnEveryFrame()
             
-            if boundingBox.simdPosition != SIMD3<Float>(repeating: 0) {
+            if boundingBox.simdPosition != float3(repeating: 0) {
                 // Make sure the position of the ScannedObject and its nested
                 // BoundingBox is always identical.
                 updatePosition(boundingBox.simdWorldPosition)
@@ -209,7 +209,7 @@ class ScannedObject: SCNNode {
         
         let oldYExtent = boundingBox.extent.y
         
-        boundingBox.extent *= SIMD3<Float>(repeating: Float(scale))
+        boundingBox.extent *= float3(repeating: Float(scale))
         boundingBox.hasBeenAdjustedByUser = true
         
         // Correct y position so that the floor of the box remains at the same position.
@@ -221,19 +221,19 @@ class ScannedObject: SCNNode {
     private func scanningStateChanged(_ notification: Notification) {
         guard let state = notification.userInfo?[ARScan.stateUserInfoKey] as? ARScan.State else { return }
         switch state {
-        case .ready:
-            boundingBox?.removeFromParentNode()
-            boundingBox = nil
-        case .defineBoundingBox:
-            if boundingBox == nil {
-                createBoundingBoxFromGhost()
-            }
-            ghostBoundingBox?.removeFromParentNode()
-            ghostBoundingBox = nil
-        case .scanning:
-            break
-        case .adjustingOrigin:
-            moveOriginToBottomOfBoundingBox()
+            case .ready:
+                boundingBox?.removeFromParentNode()
+                boundingBox = nil
+            case .defineBoundingBox:
+                if boundingBox == nil {
+                    createBoundingBoxFromGhost()
+                }
+                ghostBoundingBox?.removeFromParentNode()
+                ghostBoundingBox = nil
+            case .scanning:
+                break
+            case .adjustingOrigin:
+                moveOriginToBottomOfBoundingBox()
         }
     }
     
