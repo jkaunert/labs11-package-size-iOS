@@ -6,16 +6,16 @@
 //  Copyright © 2019 ScannAR Team. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import ARKit
 
 class DetectedBoundingBox: SCNNode {
     
-    init(points: [SIMD3<Float>], scale: CGFloat, color: UIColor = .appGreen) {
+    init(points: [float3], scale: CGFloat, color: UIColor = .appGreen) {
         super.init()
         
-        var localMin = SIMD3<Float>(repeating: Float.greatestFiniteMagnitude)
-        var localMax = SIMD3<Float>(repeating: -Float.greatestFiniteMagnitude)
+        var localMin = float3(repeating: Float.greatestFiniteMagnitude)
+        var localMax = float3(repeating: -Float.greatestFiniteMagnitude)
         
         for point in points {
             localMin = min(localMin, point)
