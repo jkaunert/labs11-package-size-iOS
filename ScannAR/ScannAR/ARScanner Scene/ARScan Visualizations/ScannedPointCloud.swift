@@ -15,21 +15,21 @@ class ScannedPointCloud: SCNNode, PointCloud {
     private var preliminaryPointsNode = SCNNode()
     
     // The latest known set of points inside the reference object.
-    private var referenceObjectPoints: [SIMD3<Float>] = []
+    private var referenceObjectPoints: [float3] = []
     
     // The current frame's set of points inside the reference object.
-    private var currentFramePoints: [SIMD3<Float>] = []
+    private var currentFramePoints: [float3] = []
     
     // The set of currently rendered points, in world coordinates.
     // Note: We render them in world coordinates instead of local coordinates to
     //       prevent rendering issues with points jittering e.g. when the
     //       bounding box is rotated.
-    private var renderedPoints: [SIMD3<Float>] = []
+    private var renderedPoints: [float3] = []
     
     // The set of points from the current frame, in world coordinates.
     // Note: These are preliminary since not all of them might be added
     //       to the reference object.
-    private var renderedPreliminaryPoints: [SIMD3<Float>] = []
+    private var renderedPreliminaryPoints: [float3] = []
     
     private var boundingBox: BoundingBox?
     
@@ -77,7 +77,7 @@ class ScannedPointCloud: SCNNode, PointCloud {
     func update(with pointCloud: ARPointCloud, localFor boundingBox: BoundingBox) {
         // Convert the points to world coordinates because we display them
         // in world coordinates.
-        var pointsInWorld: [SIMD3<Float>] = []
+        var pointsInWorld: [float3] = []
         for point in pointCloud.points {
             pointsInWorld.append(boundingBox.simdConvertPosition(point, to: nil))
         }
@@ -126,10 +126,11 @@ class ScannedPointCloud: SCNNode, PointCloud {
     private func scanningStateChanged(_ notification: Notification) {
         guard let state = notification.userInfo?[ARScan.stateUserInfoKey] as? ARScan.State else { return }
         switch state {
-        case .ready, .scanning, .defineBoundingBox:
-            self.isHidden = false
-        case .adjustingOrigin:
-            self.isHidden = true
+            case .ready, .scanning, .defineBoundingBox:
+                self.isHidden = false
+            case .adjustingOrigin:
+                self.isHidden = true
         }
     }
 }
+
