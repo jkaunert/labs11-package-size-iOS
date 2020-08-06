@@ -25,21 +25,21 @@ enum Axis {
     case y
     case z
     
-    var normal: SIMD3<Float> {
+    var normal: float3 {
         switch self {
-        case .x:
-            return SIMD3<Float>(1, 0, 0)
-        case .y:
-            return SIMD3<Float>(0, 1, 0)
-        case .z:
-            return SIMD3<Float>(0, 0, 1)
+            case .x:
+                return float3(1, 0, 0)
+            case .y:
+                return float3(0, 1, 0)
+            case .z:
+                return float3(0, 0, 1)
         }
     }
 }
 
 struct PlaneDrag {
     var planeTransform: float4x4
-    var offset: SIMD3<Float>
+    var offset: float3
 }
 
 extension simd_quatf {
@@ -49,25 +49,25 @@ extension simd_quatf {
 }
 
 extension float4x4 {
-    var position: SIMD3<Float> {
+    var position: float3 {
         return columns.3.xyz
     }
 }
 
 extension float4 {
-    var xyz: SIMD3<Float> {
-        return SIMD3<Float>(x, y, z)
+    var xyz: float3 {
+        return float3(x, y, z)
     }
     
-    init(_ xyz: SIMD3<Float>, _ w: Float) {
+    init(_ xyz: float3, _ w: Float) {
         self.init(xyz.x, xyz.y, xyz.z, w)
     }
 }
 
 extension float4x4 {
-    var translation: SIMD3<Float> {
+    var translation: float3 {
         let translation = self.columns.3
-        return SIMD3<Float>(translation.x, translation.y, translation.z)
+        return float3(translation.x, translation.y, translation.z)
     }
 }
 
@@ -101,11 +101,11 @@ extension SCNMaterial {
 }
 
 struct Ray {
-    let origin: SIMD3<Float>
-    let direction: SIMD3<Float>
-    let endPoint: SIMD3<Float>
+    let origin: float3
+    let direction: float3
+    let endPoint: float3
     
-    init(origin: SIMD3<Float>, direction: SIMD3<Float>) {
+    init(origin: float3, direction: float3) {
         self.origin = origin
         self.direction = direction
         self.endPoint = origin + direction
@@ -119,13 +119,13 @@ struct Ray {
 
 extension ARSCNView {
     
-    func unprojectPointLocal(_ point: CGPoint, ontoPlane planeTransform: float4x4) -> SIMD3<Float>? {
+    func unprojectPointLocal(_ point: CGPoint, ontoPlane planeTransform: float4x4) -> float3? {
         guard let result = unprojectPoint(point, ontoPlane: planeTransform) else {
             return nil
         }
         
         // Convert the result into the plane's local coordinate system.
-        let point = SIMD4<Float>(result, 1)
+        let point = float4(result, 1)
         let localResult = planeTransform.inverse * point
         return localResult.xyz
     }
@@ -154,19 +154,19 @@ extension ARSCNView {
 extension SCNNode {
     
     /// Wrapper for SceneKit function to use SIMD vectors and a typed dictionary.
-    open func hitTestWithSegment(from pointA: SIMD3<Float>, to pointB: SIMD3<Float>, options: [SCNHitTestOption: Any]? = nil) -> [SCNHitTestResult] {
+    open func hitTestWithSegment(from pointA: float3, to pointB: float3, options: [SCNHitTestOption: Any]? = nil) -> [SCNHitTestResult] {
         if let options = options {
             var rawOptions = [String: Any]()
             for (key, value) in options {
                 switch (key, value) {
-                case (_, let bool as Bool):
-                    rawOptions[key.rawValue] = NSNumber(value: bool)
-                case (.searchMode, let searchMode as SCNHitTestSearchMode):
-                    rawOptions[key.rawValue] = NSNumber(value: searchMode.rawValue)
-                case (.rootNode, let object as AnyObject):
-                    rawOptions[key.rawValue] = object
-                default:
-                    fatalError("unexpected key/value in SCNHitTestOption dictionary")
+                    case (_, let bool as Bool):
+                        rawOptions[key.rawValue] = NSNumber(value: bool)
+                    case (.searchMode, let searchMode as SCNHitTestSearchMode):
+                        rawOptions[key.rawValue] = NSNumber(value: searchMode.rawValue)
+                    case (.rootNode, let object as AnyObject):
+                        rawOptions[key.rawValue] = object
+                    default:
+                        fatalError("unexpected key/value in SCNHitTestOption dictionary")
                 }
             }
             return hitTestWithSegment(from: SCNVector3(pointA), to: SCNVector3(pointB), options: rawOptions)
@@ -238,7 +238,7 @@ extension CGPoint {
     }
 }
 
-func dragPlaneTransform(for dragRay: Ray, cameraPos: SIMD3<Float>) -> float4x4 {
+func dragPlaneTransform(for dragRay: Ray, cameraPos: float3) -> float4x4 {
     
     let camToRayOrigin = normalize(dragRay.origin - cameraPos)
     
@@ -264,10 +264,10 @@ func dragPlaneTransform(for dragRay: Ray, cameraPos: SIMD3<Float>) -> float4x4 {
     let zVector = normalize(cross(xVector, camToRayOrigin))
     let yVector = normalize(cross(xVector, zVector))
     
-    return float4x4([SIMD4<Float>(xVector, 0),
-                     SIMD4<Float>(yVector, 0),
-                     SIMD4<Float>(zVector, 0),
-                     SIMD4<Float>(dragRay.origin, 1)])
+    return float4x4([float4(xVector, 0),
+                     float4(yVector, 0),
+                     float4(zVector, 0),
+                     float4(dragRay.origin, 1)])
 }
 
 func dragPlaneTransform(forPlaneNormal planeNormalRay: Ray, camera: SCNNode) -> float4x4 {
@@ -279,10 +279,10 @@ func dragPlaneTransform(forPlaneNormal planeNormalRay: Ray, camera: SCNNode) -> 
     let xVector = cross(yVector, camera.simdWorldRight)
     let zVector = normalize(cross(xVector, yVector))
     
-    return float4x4([SIMD4<Float>(xVector, 0),
-                     SIMD4<Float>(yVector, 0),
-                     SIMD4<Float>(zVector, 0),
-                     SIMD4<Float>(planeNormalRay.origin, 1)])
+    return float4x4([float4(xVector, 0),
+                     float4(yVector, 0),
+                     float4(zVector, 0),
+                     float4(planeNormalRay.origin, 1)])
 }
 
 extension ARReferenceObject {
@@ -369,4 +369,5 @@ extension UIImage {
         return newImage
     }
 }
+
 
