@@ -94,7 +94,7 @@ extension ObjectOrigin {
         
         if abs(boundingBoxPos.x - simdPosition.x) < snapThreshold &&
             abs(boundingBoxPos.z - simdPosition.z) < snapThreshold {
-            simdPosition = SIMD3<Float>(boundingBoxPos.x, simdPosition.y, boundingBoxPos.z)
+            simdPosition = float3(boundingBoxPos.x, simdPosition.y, boundingBoxPos.z)
             isWithinSnapThreshold = true
         }
         
