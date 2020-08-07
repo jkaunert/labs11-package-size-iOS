@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qq8-sE-in9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qq8-sE-in9">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,7 +24,6 @@
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="WP9-IK-WPe" firstAttribute="bottom" secondItem="Shu-kE-FIz" secondAttribute="bottom" id="0Jc-bY-I6R"/>
                             <constraint firstItem="WP9-IK-WPe" firstAttribute="trailing" secondItem="Shu-kE-FIz" secondAttribute="trailing" id="3cB-Mi-9M1"/>
@@ -60,7 +59,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aSe-Zc-dbB" customClass="ScannARMainCollectionView" customModule="ScannAR" customModuleProvider="target">
                                 <rect key="frame" x="8" y="56" width="359" height="567"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4ky-jE-ZfK">
                                     <size key="itemSize" width="160" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -116,7 +115,6 @@
                             </collectionView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sp6-fH-wpz">
                                 <rect key="frame" x="8" y="8" width="359" height="41"/>
-                                <color key="backgroundColor" red="0.94841229790000003" green="0.94841229790000003" blue="0.94841229790000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="w0h-Ch-8p5"/>
                                 </constraints>
@@ -126,14 +124,8 @@
                                     <segment title="Shipments"/>
                                 </segments>
                                 <color key="tintColor" name="appARKADarkBlue"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" name="appARKADarkBlue"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="sp6-fH-wpz" firstAttribute="leading" secondItem="Hfh-tf-2fd" secondAttribute="leading" constant="8" id="4N0-KJ-DcI"/>
                             <constraint firstItem="sp6-fH-wpz" firstAttribute="trailing" secondItem="Hfh-tf-2fd" secondAttribute="trailing" constant="-8" id="Mdm-qA-NsS"/>
@@ -240,7 +232,6 @@
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="IZL-aW-Sbk" firstAttribute="leading" secondItem="plg-hk-dcG" secondAttribute="leading" id="0xj-Nm-fze"/>
                             <constraint firstItem="IZL-aW-Sbk" firstAttribute="top" secondItem="plg-hk-dcG" secondAttribute="top" id="9hT-By-1WS"/>
@@ -272,7 +263,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I2a-KS-dVX" customClass="AddProductTableView" customModule="ScannAR" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FirstCell" rowHeight="217" id="2O7-Gq-ELM" customClass="FirstAddProductTableViewCell" customModule="ScannAR" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="217"/>
@@ -362,6 +353,10 @@
             <point key="canvasLocation" x="1390" y="945"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="8Uy-fo-FVQ"/>
+        <segue reference="XEB-cj-2AL"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="user-2" width="16" height="16"/>
         <image name="user-4" width="16" height="16"/>
@@ -369,8 +364,4 @@
             <color red="0.046999998390674591" green="0.17299999296665192" blue="0.32499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="543-wr-S5i"/>
-        <segue reference="L7x-hn-DoI"/>
-    </inferredMetricsTieBreakers>
 </document>

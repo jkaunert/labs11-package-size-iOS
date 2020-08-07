@@ -902,8 +902,8 @@
 				D1EAB21D224405D700720412 /* ScannARMainViewController.swift */,
 				ABC2933A22703B0500668CCB /* OuterScannARMainViewController.swift */,
 				D1EAB228224555B300720412 /* ScannARMainNavigationController.swift */,
-				D1EAB21F224405F900720412 /* ScannARMainViewController.storyboard */,
 				D1EAB21B224405BE00720412 /* ScannARMainCollectionView.swift */,
+				D1EAB21F224405F900720412 /* ScannARMainViewController.storyboard */,
 			);
 			path = MainCollectionView;
 			sourceTree = "<group>";
