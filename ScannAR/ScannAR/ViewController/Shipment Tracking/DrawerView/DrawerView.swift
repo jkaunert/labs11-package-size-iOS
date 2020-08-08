@@ -55,24 +55,24 @@ fileprivate extension DrawerPosition {
     ]
 }
 
-let kVelocityThreshold: CGFloat = 0
+let _velocityThreshold: CGFloat = 0
 
 // Vertical leeway is used for bottom animations.
-let kVerticalLeeway: CGFloat = 10.0
+let _verticalLeeway: CGFloat = 10.0
 
-let kDefaultCornerRadius: CGFloat = 9.0
+let _defaultCornerRadius: CGFloat = 15.0
 
-let kDefaultShadowRadius: CGFloat = 1.0
+let _defaultShadowRadius: CGFloat = 1.0
 
-let kDefaultShadowOpacity: Float = 0.05
+let _defaultShadowOpacity: Float = 0.05
 
-let kDefaultBackgroundEffect = UIBlurEffect(style: .extraLight)
+let _defaultBackgroundEffect = UIBlurEffect(style: .extraLight)
 
-let kDefaultBorderColor = UIColor(white: 0.2, alpha: 0.2)
+let _defaultBorderColor = UIColor(white: 0.2, alpha: 0.2)
 
-let kDefaultOverlayBackgroundColor = UIColor.black
+let _defaultOverlayBackgroundColor = UIColor.black
 
-let kOverlayOpacity: CGFloat = 0.5
+let _overlayOpacity: CGFloat = 0.5
 
 
 @objc public protocol DrawerViewDelegate {
@@ -95,7 +95,7 @@ private struct ChildScrollViewInfo {
 }
 
 
-@IBDesignable public class DrawerView: UIView {
+public class DrawerView: UIView {
 
     // MARK: - Public types
 
@@ -144,21 +144,22 @@ private struct ChildScrollViewInfo {
     // MARK: - Visual properties
 
     /// The corner radius of the drawer view.
-    override var cornerRadius: CGFloat {//= kDefaultCornerRadius {
+    public override var cornerRadius: CGFloat {
+       
         didSet {
-            updateVisuals()
+            self.updateVisuals()
         }
     }
 
     /// The shadow radius of the drawer view.
-    @IBInspectable override var shadowRadius: CGFloat {//= kDefaultShadowRadius {
+    public override var shadowRadius: CGFloat {
         didSet {
             updateVisuals()
         }
     }
 
     /// The shadow opacity of the drawer view.
-    @IBInspectable override var shadowOpacity: Float {//= kDefaultshadowOpacity {
+    public override var shadowOpacity: Float {
         didSet {
             updateVisuals()
         }
@@ -166,13 +167,13 @@ private struct ChildScrollViewInfo {
 
     /// The used effect for the drawer view background. When set to nil no
     /// effect is used.
-    public var backgroundEffect: UIVisualEffect? = kDefaultBackgroundEffect {
+    public var backgroundEffect: UIVisualEffect? = _defaultBackgroundEffect {
         didSet {
             updateVisuals()
         }
     }
 
-    @IBInspectable override public var borderColor: UIColor? {
+    override public var borderColor: UIColor? {
         didSet {
             updateVisuals()
         }
@@ -196,13 +197,13 @@ private struct ChildScrollViewInfo {
         }
     }
 
-    public var overlayBackgroundColor: UIColor = kDefaultOverlayBackgroundColor {
+    public var overlayBackgroundColor: UIColor = _defaultOverlayBackgroundColor {
         didSet {
             updateVisuals()
         }
     }
 
-    public var overlayOpacity: CGFloat = kOverlayOpacity {
+    public var overlayOpacity: CGFloat = _overlayOpacity {
         didSet {
             setPosition(currentPosition, animated: false, notifyDelegate: false)
         }
@@ -421,7 +422,7 @@ private struct ChildScrollViewInfo {
 
     private let borderView = UIView()
 
-    private let backgroundView = UIVisualEffectView(effect: kDefaultBackgroundEffect)
+    private let backgroundView = UIVisualEffectView(effect: _defaultBackgroundEffect)
 
     private var willConceal: Bool = false
 
@@ -462,6 +463,13 @@ private struct ChildScrollViewInfo {
     required public init?(coder aDecoder: NSCoder) {
         self.embeddedView = nil
         super.init(coder: aDecoder)
+        self.layer.cornerRadius = _defaultCornerRadius
+        self.layer.shadowOpacity = _defaultShadowOpacity
+        self.layer.shadowRadius = _defaultShadowRadius
+        self.cornerRadius = _defaultCornerRadius
+        self.shadowRadius = _defaultShadowRadius
+        self.shadowOpacity = _defaultShadowOpacity
+        
         self.setup()
     }
 
@@ -553,7 +561,7 @@ private struct ChildScrollViewInfo {
         let backgroundViewConstraints = [
             backgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             backgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            backgroundView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: kVerticalLeeway),
+            backgroundView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: _verticalLeeway),
             backgroundView.topAnchor.constraint(equalTo: self.topAnchor)
         ]
 
@@ -576,7 +584,7 @@ private struct ChildScrollViewInfo {
         let borderViewConstraints = [
             borderView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: -0.5),
             borderView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0.5),
-            borderView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: kVerticalLeeway),
+            borderView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: _verticalLeeway),
             borderView.topAnchor.constraint(equalTo: self.topAnchor, constant: -0.5)
         ]
 
@@ -928,7 +936,7 @@ private struct ChildScrollViewInfo {
                 let advancement = velocity.y > 0 ? -1 : 1
 
                 let nextPosition: DrawerPosition
-                if targetPosition == self.position && abs(velocity.y) > kVelocityThreshold,
+                if targetPosition == self.position && abs(velocity.y) > _velocityThreshold,
                     let advanced = self.snapPositionsDescending.advance(from: targetPosition, offset: advancement) {
                     nextPosition = advanced
                 } else {
@@ -1102,7 +1110,7 @@ private struct ChildScrollViewInfo {
             // Fallback on earlier versions
             let mask: CAShapeLayer = {
                 let m = CAShapeLayer()
-                let frame = backgroundView.bounds.insetBy(top: 0, bottom: -kVerticalLeeway, left: 0, right: 0)
+                let frame = backgroundView.bounds.insetBy(top: 0, bottom: -_verticalLeeway, left: 0, right: 0)
                 let path = UIBezierPath(roundedRect: frame, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: self.cornerRadius, height: self.cornerRadius))
                 m.path = path.cgPath
                 return m

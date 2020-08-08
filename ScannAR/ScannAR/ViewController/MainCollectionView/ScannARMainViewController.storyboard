@@ -19,11 +19,15 @@
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Shu-kE-FIz">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <segue destination="8s4-Ma-CAL" kind="embed" id="YIt-WY-jzi"/>
                                 </connections>
                             </containerView>
                         </subviews>
+
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+
                         <constraints>
                             <constraint firstItem="WP9-IK-WPe" firstAttribute="bottom" secondItem="Shu-kE-FIz" secondAttribute="bottom" id="0Jc-bY-I6R"/>
                             <constraint firstItem="WP9-IK-WPe" firstAttribute="trailing" secondItem="Shu-kE-FIz" secondAttribute="trailing" id="3cB-Mi-9M1"/>
@@ -85,6 +89,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <connections>
                                             <segue destination="axB-Tp-gcg" kind="presentation" identifier="ProductDetailSegue" modalPresentationStyle="fullScreen" id="543-wr-S5i"/>
                                         </connections>
@@ -96,6 +101,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
+                                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <segue destination="fvm-Oc-IFh" kind="presentation" identifier="PackageDetailSegue" id="11N-Qu-ITZ"/>
                                         </connections>
@@ -107,6 +113,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
+                                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <segue destination="aLv-lv-Emq" kind="presentation" identifier="ShipmentDetailSegue" id="kNt-eB-3gn"/>
                                         </connections>
@@ -115,6 +122,8 @@
                             </collectionView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sp6-fH-wpz">
                                 <rect key="frame" x="8" y="8" width="359" height="41"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="w0h-Ch-8p5"/>
                                 </constraints>
@@ -126,6 +135,8 @@
                                 <color key="tintColor" name="appARKADarkBlue"/>
                             </segmentedControl>
                         </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+
                         <constraints>
                             <constraint firstItem="sp6-fH-wpz" firstAttribute="leading" secondItem="Hfh-tf-2fd" secondAttribute="leading" constant="8" id="4N0-KJ-DcI"/>
                             <constraint firstItem="sp6-fH-wpz" firstAttribute="trailing" secondItem="Hfh-tf-2fd" secondAttribute="trailing" constant="-8" id="Mdm-qA-NsS"/>
@@ -227,11 +238,14 @@
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZL-aW-Sbk">
                                 <rect key="frame" x="0.0" y="44" width="375" height="579"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <segue destination="Qem-YB-khX" kind="embed" identifier="EmbedSegue" id="10C-7q-hyR"/>
                                 </connections>
                             </containerView>
                         </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+
                         <constraints>
                             <constraint firstItem="IZL-aW-Sbk" firstAttribute="leading" secondItem="plg-hk-dcG" secondAttribute="leading" id="0xj-Nm-fze"/>
                             <constraint firstItem="IZL-aW-Sbk" firstAttribute="top" secondItem="plg-hk-dcG" secondAttribute="top" id="9hT-By-1WS"/>
@@ -264,6 +278,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I2a-KS-dVX" customClass="AddProductTableView" customModule="ScannAR" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+
+                                <color key="sectionIndexBackgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FirstCell" rowHeight="217" id="2O7-Gq-ELM" customClass="FirstAddProductTableViewCell" customModule="ScannAR" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="217"/>
@@ -271,7 +288,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2O7-Gq-ELM" id="Juv-IW-yP4">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="217"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SecondCell" rowHeight="230" id="avB-4R-a2o" customClass="SecondAddProductTableViewCell" customModule="ScannAR" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="245" width="375" height="230"/>
@@ -279,7 +298,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="avB-4R-a2o" id="ziF-gl-7hU">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="230"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ThirdCell" rowHeight="169" id="BoQ-TG-2oy" customClass="ThirdAddProductTableViewCell" customModule="ScannAR" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="475" width="375" height="169"/>
@@ -287,7 +308,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BoQ-TG-2oy" id="2p5-Md-NHw">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="169"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FourthCell" rowHeight="113" id="fxi-Se-FCJ" customClass="FourthAddProductTableViewCell" customModule="ScannAR" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="644" width="375" height="113"/>
@@ -295,7 +318,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fxi-Se-FCJ" id="hKx-9M-Mul">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="113"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -342,6 +367,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MrY-jX-1WX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

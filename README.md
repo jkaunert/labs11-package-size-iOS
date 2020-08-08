@@ -1,5 +1,5 @@
-# ScannAR (iOS) a.k.a. labs11-package-size-iOS 
-> iOS app for Lambda Labs 11 - Package Size Project - ARKit-enabled iOS app designed for 3rd-party resellers
+# ScannAR (iOS) 
+> ARKit-enabled iOS app designed for 3rd-party resellers
 
 [![Swift Version][swift-image]][swift-url]
 [![License][license-image]][license-url]
@@ -24,6 +24,7 @@
 
 #### Coming Soon
 
+- Dark Mode
 
 ## Meta
 
