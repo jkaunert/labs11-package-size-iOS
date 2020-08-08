@@ -27,12 +27,12 @@ enum Axis {
     
     var normal: float3 {
         switch self {
-        case .x:
-            return float3(1, 0, 0)
-        case .y:
-            return float3(0, 1, 0)
-        case .z:
-            return float3(0, 0, 1)
+            case .x:
+                return float3(1, 0, 0)
+            case .y:
+                return float3(0, 1, 0)
+            case .z:
+                return float3(0, 0, 1)
         }
     }
 }
@@ -159,14 +159,14 @@ extension SCNNode {
             var rawOptions = [String: Any]()
             for (key, value) in options {
                 switch (key, value) {
-                case (_, let bool as Bool):
-                    rawOptions[key.rawValue] = NSNumber(value: bool)
-                case (.searchMode, let searchMode as SCNHitTestSearchMode):
-                    rawOptions[key.rawValue] = NSNumber(value: searchMode.rawValue)
-                case (.rootNode, let object as AnyObject):
-                    rawOptions[key.rawValue] = object
-                default:
-                    fatalError("unexpected key/value in SCNHitTestOption dictionary")
+                    case (_, let bool as Bool):
+                        rawOptions[key.rawValue] = NSNumber(value: bool)
+                    case (.searchMode, let searchMode as SCNHitTestSearchMode):
+                        rawOptions[key.rawValue] = NSNumber(value: searchMode.rawValue)
+                    case (.rootNode, let object as AnyObject):
+                        rawOptions[key.rawValue] = object
+                    default:
+                        fatalError("unexpected key/value in SCNHitTestOption dictionary")
                 }
             }
             return hitTestWithSegment(from: SCNVector3(pointA), to: SCNVector3(pointB), options: rawOptions)
@@ -369,4 +369,5 @@ extension UIImage {
         return newImage
     }
 }
+
 

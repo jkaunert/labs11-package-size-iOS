@@ -28,13 +28,13 @@ class ShipmentsDetailContainerViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        guard let shipment = shipment else { fatalError("No shipment sent to Container VC")}
+//        guard let shipment = shipment else { fatalError("No shipment sent to Container VC")}
         
         if segue.identifier == "EmbedSegue" {
             guard let destVC = segue.destination as? ShipmentsDetailViewController else { fatalError("Embed Segue not going to ShipmentsDetailViewController")}
             
             self.delgateForButtomContainer = destVC
-            destVC.shipment = shipment
+//            destVC.shipment = shipment
         } else if segue.identifier == "EmbedBottomSegue" {
             guard let destVC = segue.destination as? BottomButtonContainerViewController else { fatalError("Embed Segue not going to ShipmentsDetailViewController")}
             destVC.delegate = delgateForButtomContainer

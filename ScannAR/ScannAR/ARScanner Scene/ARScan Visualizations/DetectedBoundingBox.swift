@@ -6,7 +6,7 @@
 //  Copyright © 2019 ScannAR Team. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import ARKit
 
 class DetectedBoundingBox: SCNNode {

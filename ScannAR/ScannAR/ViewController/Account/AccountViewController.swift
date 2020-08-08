@@ -59,7 +59,7 @@ class AccountViewController: UIViewController {
     }
     
         private func updateAccountInfoFromText(){
-            guard var account = self.account else {fatalError("There was no Account information returned for the user.")}
+            guard var _ = self.account else {fatalError("There was no Account information returned for the user.")}
             if let email = emailTextField.text, let name = userNameTextField.text, email != "", name != "" {
                 self.account?.email = emailTextField.text!
                 self.account?.displayName = userNameTextField.text!

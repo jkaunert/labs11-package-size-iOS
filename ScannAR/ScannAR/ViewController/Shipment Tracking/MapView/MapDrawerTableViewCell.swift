@@ -8,13 +8,16 @@
 
 import UIKit
 
-//enum ShipmentStatus: String {
-//    case inTransit = "In Transit"
-//    case preShipment = "Pre-shipment"
-//    case delivered = "Delivered"
+//struct ShipmentStatus {
+//    static let dict: [Int:String] = [0: "Unknown",
+//                                     1: "Shipping",
+//                                     2: "En-Route",
+//                                     3: "Out-For-Delivery",
+//                                     4: "Delivered",
+//                                     5: "Delayed"]
 //}
-
-//struct MockShipmentModel {
+//
+//struct Shipment {
 //    let carrierLogoImage: UIImage?
 //    let carrierName: String?
 //    let dateArrived: Date?
@@ -29,15 +32,13 @@ import UIKit
 //    let trackingNumber: String?
 //    let uuid: UUID?
 //}
-
-struct MockTrackingDataModel {
-    let date: String
-    let time: String
-    let status: String
-    let currentLocation: String
-}
-
-
+//
+//struct MockTrackingDataModel {
+//    let date: String
+//    let time: String
+//    let status: String
+//    let currentLocation: String
+//}
 
 class MapDrawerTableViewCell: UITableViewCell {
     
@@ -60,15 +61,15 @@ class MapDrawerTableViewCell: UITableViewCell {
     @IBOutlet weak var shippingTypeLabel: UILabel!
     @IBOutlet weak var lastUpdatedLabel: UILabel!
     //    @IBOutlet weak var dateArrivedLabel: UILabel!
-    //    @IBOutlet weak var collectionView: UICollectionView! //header view
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        let model = MockShipmentModel(carrierLogoImage: UIImage(named: "1970-standing-eagle-logo")!, carrierName: "USPS", dateArrived: Date(), lastUpdated: Date(), productNames: ["yaya", "nana", "ohoh", "noodles", "too"], shippedDate: Date(), shippedTo: "1 Infinite Loop, Cupertino, CA", shippingType: "Snail Mail", status: 2, totalValue: 42.0, totalWeight: 42.0, trackingNumber: "92748999985493513036555961", uuid: UUID())
+
     }
     
     func configure(model: Shipment){
-        
+
         trackingNumberLabel.text = model.trackingNumber
         carrierLogoImageView.image = UIImage(named: "1970-standing-eagle-logo")
         carrierNameLabel.text = model.carrierName

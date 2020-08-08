@@ -126,10 +126,11 @@ class ScannedPointCloud: SCNNode, PointCloud {
     private func scanningStateChanged(_ notification: Notification) {
         guard let state = notification.userInfo?[ARScan.stateUserInfoKey] as? ARScan.State else { return }
         switch state {
-        case .ready, .scanning, .defineBoundingBox:
-            self.isHidden = false
-        case .adjustingOrigin:
-            self.isHidden = true
+            case .ready, .scanning, .defineBoundingBox:
+                self.isHidden = false
+            case .adjustingOrigin:
+                self.isHidden = true
         }
     }
 }
+

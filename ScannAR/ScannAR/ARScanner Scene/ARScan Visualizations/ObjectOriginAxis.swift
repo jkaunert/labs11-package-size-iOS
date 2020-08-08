@@ -46,18 +46,18 @@ class ObjectOriginAxis: SCNNode {
         let axisHandlePosition = axis.normal * length
         
         switch axis {
-        case .x:
-            color = UIColor.clear
-            texture = #imageLiteral(resourceName: "handle_red")
-            dimensions = float3(length, thickness, thickness)
-        case .y:
-            color = UIColor.clear
-            texture = #imageLiteral(resourceName: "handle_green")
-            dimensions = float3(thickness, length, thickness)
-        case .z:
-            color = UIColor.clear
-            texture = #imageLiteral(resourceName: "handle_blue")
-            dimensions = float3(thickness, thickness, length)
+            case .x:
+                color = UIColor.clear
+                texture = #imageLiteral(resourceName: "handle_red")
+                dimensions = float3(length, thickness, thickness)
+            case .y:
+                color = UIColor.clear
+                texture = #imageLiteral(resourceName: "handle_green")
+                dimensions = float3(thickness, length, thickness)
+            case .z:
+                color = UIColor.clear
+                texture = #imageLiteral(resourceName: "handle_blue")
+                dimensions = float3(thickness, thickness, length)
         }
         
         let axisGeo = SCNBox(width: CGFloat(dimensions.x),
@@ -92,3 +92,4 @@ class ObjectOriginAxis: SCNNode {
         fatalError("init(coder:) has not been implemented")
     }
 }
+

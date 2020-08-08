@@ -117,7 +117,7 @@ class PackageDetailViewController: UIViewController, BottomButtonDelegate {
         var predicateArray: [NSPredicate] = []
         for uuidString in productUUIDStrings {
             let uuid = UUID(uuidString: uuidString)
-            let predicate = NSPredicate(format: "uuid = %@", argumentArray: [uuid])
+            let predicate = NSPredicate(format: "uuid = %@", argumentArray: [uuid!])
             predicateArray.append(predicate)
             print(predicate)
         }

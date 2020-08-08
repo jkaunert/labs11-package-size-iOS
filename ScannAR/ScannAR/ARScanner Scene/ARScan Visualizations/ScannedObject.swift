@@ -221,19 +221,19 @@ class ScannedObject: SCNNode {
     private func scanningStateChanged(_ notification: Notification) {
         guard let state = notification.userInfo?[ARScan.stateUserInfoKey] as? ARScan.State else { return }
         switch state {
-        case .ready:
-            boundingBox?.removeFromParentNode()
-            boundingBox = nil
-        case .defineBoundingBox:
-            if boundingBox == nil {
-                createBoundingBoxFromGhost()
-            }
-            ghostBoundingBox?.removeFromParentNode()
-            ghostBoundingBox = nil
-        case .scanning:
-            break
-        case .adjustingOrigin:
-            moveOriginToBottomOfBoundingBox()
+            case .ready:
+                boundingBox?.removeFromParentNode()
+                boundingBox = nil
+            case .defineBoundingBox:
+                if boundingBox == nil {
+                    createBoundingBoxFromGhost()
+                }
+                ghostBoundingBox?.removeFromParentNode()
+                ghostBoundingBox = nil
+            case .scanning:
+                break
+            case .adjustingOrigin:
+                moveOriginToBottomOfBoundingBox()
         }
     }
     

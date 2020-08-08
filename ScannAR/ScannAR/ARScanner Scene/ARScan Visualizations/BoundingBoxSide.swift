@@ -26,17 +26,17 @@ class BoundingBoxSide: SCNNode {
     // The normal vector of this side.
     var normal: float3 {
         switch face {
-        case .front, .right, .top: return dragAxis.normal
-        case .back, .left, .bottom: return -dragAxis.normal
+            case .front, .right, .top: return dragAxis.normal
+            case .back, .left, .bottom: return -dragAxis.normal
         }
     }
     
     // The drag axis for this side.
     var dragAxis: Axis {
         switch face {
-        case .left, .right: return Axis.x
-        case .bottom, .top: return Axis.y
-        case .front, .back: return Axis.z
+            case .left, .right: return Axis.x
+            case .bottom, .top: return Axis.y
+            case .front, .back: return Axis.z
         }
     }
     
@@ -97,23 +97,23 @@ class BoundingBoxSide: SCNNode {
         self.size = size(from: extent)
         
         switch face {
-        case .front:
-            simdLocalTranslate(by: float3(0, 0, extent.z / 2))
-        case .back:
-            simdLocalTranslate(by: float3(0, 0, -extent.z / 2))
-            simdLocalRotate(by: simd_quatf(angle: .pi, axis: .y))
-        case .left:
-            simdLocalTranslate(by: float3(-extent.x / 2, 0, 0))
-            simdLocalRotate(by: simd_quatf(angle: -.pi / 2, axis: .y))
-        case .right:
-            simdLocalTranslate(by: float3(extent.x / 2, 0, 0))
-            simdLocalRotate(by: simd_quatf(angle: .pi / 2, axis: .y))
-        case .bottom:
-            simdLocalTranslate(by: float3(0, -extent.y / 2, 0))
-            simdLocalRotate(by: simd_quatf(angle: .pi / 2, axis: .x))
-        case .top:
-            simdLocalTranslate(by: float3(0, extent.y / 2, 0))
-            simdLocalRotate(by: simd_quatf(angle: -.pi / 2, axis: .x))
+            case .front:
+                simdLocalTranslate(by: float3(0, 0, extent.z / 2))
+            case .back:
+                simdLocalTranslate(by: float3(0, 0, -extent.z / 2))
+                simdLocalRotate(by: simd_quatf(angle: .pi, axis: .y))
+            case .left:
+                simdLocalTranslate(by: float3(-extent.x / 2, 0, 0))
+                simdLocalRotate(by: simd_quatf(angle: -.pi / 2, axis: .y))
+            case .right:
+                simdLocalTranslate(by: float3(extent.x / 2, 0, 0))
+                simdLocalRotate(by: simd_quatf(angle: .pi / 2, axis: .y))
+            case .bottom:
+                simdLocalTranslate(by: float3(0, -extent.y / 2, 0))
+                simdLocalRotate(by: simd_quatf(angle: .pi / 2, axis: .x))
+            case .top:
+                simdLocalTranslate(by: float3(0, extent.y / 2, 0))
+                simdLocalRotate(by: simd_quatf(angle: -.pi / 2, axis: .x))
         }
         
         setupExtensions()
@@ -121,18 +121,18 @@ class BoundingBoxSide: SCNNode {
     
     func update(boundingBoxExtent extent: float3) {
         switch face {
-        case .front:
-            simdPosition = float3(0, 0, extent.z / 2)
-        case .back:
-            simdPosition = float3(0, 0, -extent.z / 2)
-        case .left:
-            simdPosition = float3(-extent.x / 2, 0, 0)
-        case .right:
-            simdPosition = float3(extent.x / 2, 0, 0)
-        case .bottom:
-            simdPosition = float3(0, -extent.y / 2, 0)
-        case .top:
-            simdPosition = float3(0, extent.y / 2, 0)
+            case .front:
+                simdPosition = float3(0, 0, extent.z / 2)
+            case .back:
+                simdPosition = float3(0, 0, -extent.z / 2)
+            case .left:
+                simdPosition = float3(-extent.x / 2, 0, 0)
+            case .right:
+                simdPosition = float3(extent.x / 2, 0, 0)
+            case .bottom:
+                simdPosition = float3(0, -extent.y / 2, 0)
+            case .top:
+                simdPosition = float3(0, extent.y / 2, 0)
         }
         
         // Update extensions if the size has changed.
@@ -151,12 +151,12 @@ class BoundingBoxSide: SCNNode {
     
     private func size(from extent: float3) -> CGSize {
         switch face {
-        case .front, .back:
-            return CGSize(width: CGFloat(extent.x), height: CGFloat(extent.y))
-        case .left, .right:
-            return CGSize(width: CGFloat(extent.z), height: CGFloat(extent.y))
-        case .bottom, .top:
-            return CGSize(width: CGFloat(extent.x), height: CGFloat(extent.z))
+            case .front, .back:
+                return CGSize(width: CGFloat(extent.x), height: CGFloat(extent.y))
+            case .left, .right:
+                return CGSize(width: CGFloat(extent.z), height: CGFloat(extent.y))
+            case .bottom, .top:
+                return CGSize(width: CGFloat(extent.x), height: CGFloat(extent.z))
         }
     }
     

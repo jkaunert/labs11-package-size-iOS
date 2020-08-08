@@ -12,7 +12,6 @@ import AVFoundation
 
 @IBDesignable
 class FlashlightButton: RoundedButton {
-    
 
     override var isHidden: Bool {
         didSet {

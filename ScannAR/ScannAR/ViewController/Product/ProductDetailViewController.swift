@@ -120,10 +120,10 @@ class ProductDetailViewController: UIViewController, BottomButtonDelegate, EditP
         product.name = nameTextField.text
         product.manufacturerId = manufacturerIdTextField.text
         
-        if let value = Double("\(valueTextField.text)") {
+        if let value = Double("\(String(describing: valueTextField.text))") {
             product.value = value
         }
-        if let height = Double("\(heightTextField.text)") {
+        if let height = Double("\(String(describing: heightTextField.text))") {
             product.height = height
         }
         product.fragile = fragileSwitch.isOn ? 1 : 0

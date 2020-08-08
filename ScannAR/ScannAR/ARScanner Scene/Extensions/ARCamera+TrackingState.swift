@@ -25,6 +25,8 @@ extension ARCamera.TrackingState {
                 return "ScannAR is initializing"
             case .relocalizing:
                 return "ScannAR is relocalizing"
+            @unknown default:
+                return "Unknown Default, Please handle"
             }
         }
     }

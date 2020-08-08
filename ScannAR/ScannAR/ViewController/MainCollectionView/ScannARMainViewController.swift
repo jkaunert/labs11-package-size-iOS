@@ -92,7 +92,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
     
     private func loadImage(forCell cell: ProductsCollectionViewCell, forItemAt indexPath: IndexPath) {
         let photoReference = productsFetchedResultsController.object(at: indexPath)
-        guard let thumbnail = photoReference.thumbnail else {
+        guard photoReference.thumbnail != nil else {
             cell.productImageView.image = UIImage(named: "ET")
             return
             
@@ -287,7 +287,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             guard let indexPath = collectionView.indexPathsForSelectedItems?.first else {fatalError("No selected indexPath")}
             let shipment = shipmentsFetchedResultsController.object(at: indexPath)
             guard let destVC = segue.destination.children[0] as? ShipmentsDetailContainerViewController else { fatalError("Segue should cast view controller as ShipmentTrackingMainViewController but failed to do so.")}
-            destVC.shipment = shipment
+//            destVC.shipment = shipment
             
         } else if segue.identifier == "ARScanMainMenuShow" {
             guard segue.destination is ARScanMenuScreenViewController else { fatalError("Segue should cast view controller as ARScanMenuScreenViewController but failed to do so.")}
@@ -411,8 +411,9 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             return cell
         
         case 2:
+            let shipment = Shipment(carrierName: "USPS",dimensions: "42x42x42",productNames: ["yaya", "nana", "ohoh", "noodles", "too"], productUuids: nil, shipmentTrackingDetail: nil, shippedDate: Date(), dateArrived: Date(), lastUpdated: Date(), shippingType: "Snail Mail",   totalWeight: 42.0, totalValue: 42.0, status: 2,  trackingNumber: "92748999985493513036555961", shippedTo: "1 Infinite Loop, Cupertino, CA", uuid: UUID())
             
-            let shipment = shipmentsFetchedResultsController.object(at: indexPath)
+//            let shipment = shipmentsFetchedResultsController.object(at: indexPath)
             
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: shipmentReuseIdentifier, for: indexPath) as? ShipmentsCollectionViewCell else { fatalError("Could not dequeue cell as ShipmentsCollectionViewCell") }
             

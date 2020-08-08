@@ -84,14 +84,14 @@ class BoundingBox: SCNNode {
     private func scanningStateChanged(_ notification: Notification) {
         guard let state = notification.userInfo?[ARScan.stateUserInfoKey] as? ARScan.State else { return }
         switch state {
-        case .ready, .defineBoundingBox:
-            resetCapturingProgress()
-            sides.forEach { $0.value.isHidden = false }
-        case .scanning:
-            sides.forEach { $0.value.isHidden = false }
-        case .adjustingOrigin:
-            // Hide the sides while adjusting the origin.
-            sides.forEach { $0.value.isHidden = true }
+            case .ready, .defineBoundingBox:
+                resetCapturingProgress()
+                sides.forEach { $0.value.isHidden = false }
+            case .scanning:
+                sides.forEach { $0.value.isHidden = false }
+            case .adjustingOrigin:
+                // Hide the sides while adjusting the origin.
+                sides.forEach { $0.value.isHidden = true }
         }
     }
     
@@ -155,7 +155,7 @@ class BoundingBox: SCNNode {
         // Otherwise just update the wireframe's size and position.
         wireframe.update(extent: self.extent)
         
-//        print("x: \(self.extent.x * 39.3701), y: \(self.extent.y * 39.3701), \(self.extent.z * 39.3701)" )
+        //        print("x: \(self.extent.x * 39.3701), y: \(self.extent.y * 39.3701), \(self.extent.z * 39.3701)" )
     }
     
     private func updateSides() {
@@ -460,12 +460,12 @@ class BoundingBox: SCNNode {
     
     private func sidesForAxis(_ axis: Axis) -> [BoundingBoxSide?] {
         switch axis {
-        case .x:
-            return [sides[.left], sides[.right]]
-        case .y:
-            return [sides[.top], sides[.bottom]]
-        case .z:
-            return [sides[.front], sides[.back]]
+            case .x:
+                return [sides[.left], sides[.right]]
+            case .y:
+                return [sides[.top], sides[.bottom]]
+            case .z:
+                return [sides[.front], sides[.back]]
         }
     }
     

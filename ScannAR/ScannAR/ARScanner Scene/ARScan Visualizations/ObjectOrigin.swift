@@ -293,10 +293,10 @@ class ObjectOrigin: SCNNode {
     private func scanningStateChanged(_ notification: Notification) {
         guard let state = notification.userInfo?[ARScan.stateUserInfoKey] as? ARScan.State else { return }
         switch state {
-        case .ready, .defineBoundingBox, .scanning:
-            self.isHidden = true
-        case .adjustingOrigin:
-            self.isHidden = false
+            case .ready, .defineBoundingBox, .scanning:
+                self.isHidden = true
+            case .adjustingOrigin:
+                self.isHidden = false
         }
     }
     
