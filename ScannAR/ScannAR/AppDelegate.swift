@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
         launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if #available(iOS 13.0, *) {
-            window?.overrideUserInterfaceStyle = .light
+            window?.overrideUserInterfaceStyle = .unspecified
         }
         Appearance.setupNavAppearance()
         FirebaseApp.configure()

@@ -88,8 +88,9 @@ class BottomButtonContainerViewController: UIViewController, DelegatePasserDeleg
             buttonState = .trackingNumberEntered
             
         default:
-            guard let trackItTapped = delegate?.trackItTapped else { fatalError("Use Tracking Number Entered should be implemented and is not")}
-            trackItTapped()
+            break
+//            guard let trackItTapped = delegate?.trackItTapped else { fatalError("Use Tracking Number Entered should be implemented and is not")}
+//            trackItTapped()
         }
         
     }
