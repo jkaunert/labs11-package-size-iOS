@@ -621,6 +621,9 @@
 				D132116E226FB60D00127EA4 /* Helpers */,
 				D1EAB1CC2242D47D00720412 /* Views */,
 				D1EAB1CB2242D46A00720412 /* ViewController */,
+				ABAC192E2272FBD1002625B5 /* Alert */,
+				AB519F8F2242E0D600B27A8B /* ARScanner Scene */,
+				ABB4C9EE2248BD7A0079E25D /* ARScan.storyboard */,
 				AB519F5F2242C6CA00B27A8B /* AppDelegate.swift */,
 				AB519F652242C6CA00B27A8B /* Main.storyboard */,
 				AB519F682242C6CB00B27A8B /* Assets.xcassets */,
@@ -629,10 +632,7 @@
 				AB519F6D2242C6CB00B27A8B /* Info.plist */,
 				AB519F612242C6CA00B27A8B /* art.scnassets */,
 				ABAC1937227303DB002625B5 /* AlertChildPageViewController.xib */,
-				ABAC192E2272FBD1002625B5 /* Alert */,
 				ABA70F7A225714B600A44C06 /* Best Box Size */,
-				AB519F8F2242E0D600B27A8B /* ARScanner Scene */,
-				ABB4C9EE2248BD7A0079E25D /* ARScan.storyboard */,
 			);
 			path = ScannAR;
 			sourceTree = "<group>";
@@ -1016,8 +1016,8 @@
 				D1EAB2272244598C00720412 /* Login */,
 				D120FCCC226A5348005464D1 /* ProgressViewController.swift */,
 				D120FCCE226A7047005464D1 /* BottomButtonContainerViewController.swift */,
-				ABF8F02C2268DAED00C4CCA7 /* Shipments Tracking (OLD) */,
 				AB67B42B2268506C00970E86 /* Shipment Tracking */,
+				ABF8F02C2268DAED00C4CCA7 /* Shipments Tracking (OLD) */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
