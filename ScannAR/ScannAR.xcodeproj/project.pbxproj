@@ -614,6 +614,8 @@
 			isa = PBXGroup;
 			children = (
 				AB46C54A224C080F0075EF30 /* ScannAR.entitlements */,
+				D1EAB23622492B0100720412 /* CoreDataStack.swift */,
+				DCC319B024DD2D9F00428BC6 /* Networking */,
 				D1698DAC224AFE5E00250E4D /* Protocols */,
 				D1EAB22A224920B300720412 /* Model */,
 				D137E684225E5093009CA684 /* Operation */,
@@ -902,8 +904,8 @@
 				D1EAB21D224405D700720412 /* ScannARMainViewController.swift */,
 				ABC2933A22703B0500668CCB /* OuterScannARMainViewController.swift */,
 				D1EAB228224555B300720412 /* ScannARMainNavigationController.swift */,
-				D1EAB21F224405F900720412 /* ScannARMainViewController.storyboard */,
 				D1EAB21B224405BE00720412 /* ScannARMainCollectionView.swift */,
+				D1EAB21F224405F900720412 /* ScannARMainViewController.storyboard */,
 			);
 			path = MainCollectionView;
 			sourceTree = "<group>";
@@ -928,6 +930,7 @@
 				D137E689225E6157009CA684 /* URL+Secure.swift */,
 				D120FCC82267E86C005464D1 /* UITextView+ContentSize.swift */,
 				D120FCD2226AAA35005464D1 /* UIViewController+PresentDetail.swift */,
+				D137E682225E5066009CA684 /* Cache.swift */,
 				D120FCD8226BA3E5005464D1 /* CircleView.swift */,
 				D132116F226FF48700127EA4 /* KeyboardLayoutConstraint.swift */,
 				D123F8FC2270E42100ACCBA7 /* ShiftableViewController.swift */,
@@ -1064,7 +1067,6 @@
 			isa = PBXGroup;
 			children = (
 				D11802B32254F887002837D3 /* ShippingStatus.swift */,
-				D1EAB22B224920C800720412 /* JSONWebToken.swift */,
 				D152CA5C2253BFD2000F8ACD /* Account.swift */,
 				D11802D02255B14F002837D3 /* ProductAsset.swift */,
 				D137E68F225FE703009CA684 /* ShipmentStatus.swift */,
@@ -1075,15 +1077,12 @@
 				D196E76C2256C6750012A3F7 /* Product */,
 				D196E76B2256C64B0012A3F7 /* Package */,
 				D196E76A2256C6310012A3F7 /* Shipment */,
-				D1EAB23622492B0100720412 /* CoreDataStack.swift */,
-				D1698DAF224B14E700250E4D /* APICallType.swift */,
-				D1698DB1224B2D5600250E4D /* HTTPMethod.swift */,
 				D1EAB2312249227800720412 /* ScannAR.xcdatamodeld */,
-				D137E682225E5066009CA684 /* Cache.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
+
 		DC57A01424DC8E5700926070 /* DrawerView */ = {
 			isa = PBXGroup;
 			children = (

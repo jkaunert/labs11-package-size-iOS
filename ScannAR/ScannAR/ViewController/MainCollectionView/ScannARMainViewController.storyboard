@@ -25,7 +25,9 @@
                                 </connections>
                             </containerView>
                         </subviews>
+
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+
                         <constraints>
                             <constraint firstItem="WP9-IK-WPe" firstAttribute="bottom" secondItem="Shu-kE-FIz" secondAttribute="bottom" id="0Jc-bY-I6R"/>
                             <constraint firstItem="WP9-IK-WPe" firstAttribute="trailing" secondItem="Shu-kE-FIz" secondAttribute="trailing" id="3cB-Mi-9M1"/>
@@ -121,6 +123,7 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sp6-fH-wpz">
                                 <rect key="frame" x="8" y="8" width="359" height="41"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="w0h-Ch-8p5"/>
                                 </constraints>
@@ -130,14 +133,10 @@
                                     <segment title="Shipments"/>
                                 </segments>
                                 <color key="tintColor" name="appARKADarkBlue"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" name="appARKADarkBlue"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+
                         <constraints>
                             <constraint firstItem="sp6-fH-wpz" firstAttribute="leading" secondItem="Hfh-tf-2fd" secondAttribute="leading" constant="8" id="4N0-KJ-DcI"/>
                             <constraint firstItem="sp6-fH-wpz" firstAttribute="trailing" secondItem="Hfh-tf-2fd" secondAttribute="trailing" constant="-8" id="Mdm-qA-NsS"/>
@@ -246,6 +245,7 @@
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+
                         <constraints>
                             <constraint firstItem="IZL-aW-Sbk" firstAttribute="leading" secondItem="plg-hk-dcG" secondAttribute="leading" id="0xj-Nm-fze"/>
                             <constraint firstItem="IZL-aW-Sbk" firstAttribute="top" secondItem="plg-hk-dcG" secondAttribute="top" id="9hT-By-1WS"/>
@@ -278,7 +278,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I2a-KS-dVX" customClass="AddProductTableView" customModule="ScannAR" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+
                                 <color key="sectionIndexBackgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FirstCell" rowHeight="217" id="2O7-Gq-ELM" customClass="FirstAddProductTableViewCell" customModule="ScannAR" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="217"/>
