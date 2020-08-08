@@ -150,8 +150,6 @@
 		D152CA5D2253BFD2000F8ACD /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = D152CA5C2253BFD2000F8ACD /* Account.swift */; };
 		D152CA6022542521000F8ACD /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D152CA5F22542521000F8ACD /* UIView+Helpers.swift */; };
 		D1698DAB224AF31400250E4D /* CoreDataImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1698DAA224AF31400250E4D /* CoreDataImporter.swift */; };
-		D1698DB0224B14E700250E4D /* APICallType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1698DAF224B14E700250E4D /* APICallType.swift */; };
-		D1698DB2224B2D5600250E4D /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1698DB1224B2D5600250E4D /* HTTPMethod.swift */; };
 		D196E75D225691020012A3F7 /* PackageRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D196E75A225691020012A3F7 /* PackageRepresentation.swift */; };
 		D196E75E225691020012A3F7 /* Package+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D196E75B225691020012A3F7 /* Package+Convenience.swift */; };
 		D196E75F225691020012A3F7 /* Package+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D196E75C225691020012A3F7 /* Package+Encodable.swift */; };
@@ -175,7 +173,6 @@
 		D1EAB2222244138D00720412 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB2212244138D00720412 /* LoginViewController.swift */; };
 		D1EAB2262244597D00720412 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB2252244597D00720412 /* WalkthroughViewController.swift */; };
 		D1EAB229224555B300720412 /* ScannARMainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB228224555B300720412 /* ScannARMainNavigationController.swift */; };
-		D1EAB22C224920C800720412 /* JSONWebToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB22B224920C800720412 /* JSONWebToken.swift */; };
 		D1EAB2332249227800720412 /* ScannAR.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB2312249227800720412 /* ScannAR.xcdatamodeld */; };
 		D1EAB23522492AC200720412 /* Product+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB23422492AC200720412 /* Product+Convenience.swift */; };
 		D1EAB23722492B0100720412 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EAB23622492B0100720412 /* CoreDataStack.swift */; };
@@ -195,6 +192,9 @@
 		DC57A02824DC8E9600926070 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC57A02524DC8E9600926070 /* UIView+Layout.swift */; };
 		DC57A02B24DC8F4A00926070 /* ShipmentTracking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC57A02A24DC8F4A00926070 /* ShipmentTracking.storyboard */; };
 		DCADE8482347907300E77513 /* GoogleToolboxForMac in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67B4402268554C00970E86 /* GoogleToolboxForMac */; };
+		DCCD52DE24DE5A6300091200 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD52DB24DE5A6300091200 /* HTTPMethod.swift */; };
+		DCCD52DF24DE5A6300091200 /* APICallType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD52DC24DE5A6300091200 /* APICallType.swift */; };
+		DCCD52E024DE5A6300091200 /* JSONWebToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD52DD24DE5A6300091200 /* JSONWebToken.swift */; };
 		DCD97AA424DC95FE00053F95 /* MapStyleDrawerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD97A9A24DC957000053F95 /* MapStyleDrawerTests.swift */; };
 		DCD97AA524DC960000053F95 /* MapStyleDrawerPositionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD97A9B24DC957000053F95 /* MapStyleDrawerPositionTests.swift */; };
 		DCD97AA624DC960500053F95 /* MapStyleDrawerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD97A9724DC957000053F95 /* MapStyleDrawerUITests.swift */; };
@@ -380,8 +380,6 @@
 		D152CA5C2253BFD2000F8ACD /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		D152CA5F22542521000F8ACD /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
 		D1698DAA224AF31400250E4D /* CoreDataImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataImporter.swift; sourceTree = "<group>"; };
-		D1698DAF224B14E700250E4D /* APICallType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICallType.swift; sourceTree = "<group>"; };
-		D1698DB1224B2D5600250E4D /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		D196E75A225691020012A3F7 /* PackageRepresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PackageRepresentation.swift; sourceTree = "<group>"; };
 		D196E75B225691020012A3F7 /* Package+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Package+Convenience.swift"; sourceTree = "<group>"; };
 		D196E75C225691020012A3F7 /* Package+Encodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Package+Encodable.swift"; sourceTree = "<group>"; };
@@ -407,7 +405,6 @@
 		D1EAB2212244138D00720412 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D1EAB2252244597D00720412 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
 		D1EAB228224555B300720412 /* ScannARMainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannARMainNavigationController.swift; sourceTree = "<group>"; };
-		D1EAB22B224920C800720412 /* JSONWebToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONWebToken.swift; sourceTree = "<group>"; };
 		D1EAB2322249227800720412 /* ScannAR.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ScannAR.xcdatamodel; sourceTree = "<group>"; };
 		D1EAB23422492AC200720412 /* Product+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+Convenience.swift"; sourceTree = "<group>"; };
 		D1EAB23622492B0100720412 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -428,6 +425,9 @@
 		DC57A02424DC8E9600926070 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DC57A02524DC8E9600926070 /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		DC57A02A24DC8F4A00926070 /* ShipmentTracking.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShipmentTracking.storyboard; sourceTree = "<group>"; };
+		DCCD52DB24DE5A6300091200 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		DCCD52DC24DE5A6300091200 /* APICallType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICallType.swift; sourceTree = "<group>"; };
+		DCCD52DD24DE5A6300091200 /* JSONWebToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONWebToken.swift; sourceTree = "<group>"; };
 		DCD97A9724DC957000053F95 /* MapStyleDrawerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapStyleDrawerUITests.swift; sourceTree = "<group>"; };
 		DCD97A9A24DC957000053F95 /* MapStyleDrawerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapStyleDrawerTests.swift; sourceTree = "<group>"; };
 		DCD97A9B24DC957000053F95 /* MapStyleDrawerPositionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapStyleDrawerPositionTests.swift; sourceTree = "<group>"; };
@@ -597,6 +597,7 @@
 				AB38DD072245650F008DC8C0 /* LICENSE */,
 				0E3C9BC150EE99B2527DEB44 /* Pods */,
 				5B9221DA664CE3E0EBB3D62D /* Frameworks */,
+				DC987C7624DE563100C6134C /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -615,8 +616,8 @@
 			children = (
 				AB46C54A224C080F0075EF30 /* ScannAR.entitlements */,
 				D1EAB23622492B0100720412 /* CoreDataStack.swift */,
-				DCC319B024DD2D9F00428BC6 /* Networking */,
 				D1698DAC224AFE5E00250E4D /* Protocols */,
+				DCCD52DA24DE5A6300091200 /* Networking */,
 				D1EAB22A224920B300720412 /* Model */,
 				D137E684225E5093009CA684 /* Operation */,
 				D1EAB1D92242E12600720412 /* ModelController */,
@@ -1082,7 +1083,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-
 		DC57A01424DC8E5700926070 /* DrawerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1105,6 +1105,23 @@
 				DC57A02524DC8E9600926070 /* UIView+Layout.swift */,
 			);
 			path = MapView;
+			sourceTree = "<group>";
+		};
+		DC987C7624DE563100C6134C /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		DCCD52DA24DE5A6300091200 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				DCCD52DB24DE5A6300091200 /* HTTPMethod.swift */,
+				DCCD52DC24DE5A6300091200 /* APICallType.swift */,
+				DCCD52DD24DE5A6300091200 /* JSONWebToken.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1435,13 +1452,14 @@
 				ABA70FA322573D4200A44C06 /* CardsViewController.swift in Sources */,
 				DC57A02624DC8E9600926070 /* DrawerViewController.swift in Sources */,
 				D123F903227243C800ACCBA7 /* UIApplication+Extension.swift in Sources */,
-				D1698DB0224B14E700250E4D /* APICallType.swift in Sources */,
 				AB38DCF722446347008DC8C0 /* WireFrame.swift in Sources */,
 				D1EAB2102243B67100720412 /* AccountViewController.swift in Sources */,
 				D1EAB23722492B0100720412 /* CoreDataStack.swift in Sources */,
+				DCCD52DF24DE5A6300091200 /* APICallType.swift in Sources */,
 				D1EAB229224555B300720412 /* ScannARMainNavigationController.swift in Sources */,
 				D137E683225E5066009CA684 /* Cache.swift in Sources */,
 				AB38DCE922446295008DC8C0 /* ObjectOrigin.swift in Sources */,
+				DCCD52E024DE5A6300091200 /* JSONWebToken.swift in Sources */,
 				ABA70F7C2257179E00A44C06 /* BoxConfig3DPreviewViewController.swift in Sources */,
 				ABA70F8E225739D200A44C06 /* UIView+Extensions.swift in Sources */,
 				D132530B225A85980021ED29 /* Appearance.swift in Sources */,
@@ -1515,13 +1533,12 @@
 				ABA70F9B22573BC100A44C06 /* SwipingCollectionViewCell.swift in Sources */,
 				AB12DBB32242EA0E00886A11 /* ARScan.swift in Sources */,
 				DC57A01C24DC8E5700926070 /* DrawerPresentation.swift in Sources */,
-				D1698DB2224B2D5600250E4D /* HTTPMethod.swift in Sources */,
 				D1EAB23D22492D9700720412 /* ShipmentRepresentation.swift in Sources */,
-				D1EAB22C224920C800720412 /* JSONWebToken.swift in Sources */,
 				ABC2C3B7224A857D0045A7D2 /* ScannARNetworkingController.swift in Sources */,
 				ABA70F892257395000A44C06 /* InteractiveTransitionableViewController.swift in Sources */,
 				AB7A3F572252912B003FF186 /* NavigationController+Transparent.swift in Sources */,
 				AB38DCF12244630F008DC8C0 /* ScannedObject.swift in Sources */,
+				DCCD52DE24DE5A6300091200 /* HTTPMethod.swift in Sources */,
 				D1EAB2332249227800720412 /* ScannAR.xcdatamodeld in Sources */,
 				D1EAB2222244138D00720412 /* LoginViewController.swift in Sources */,
 				D135E657224C89F5008CC7DF /* NetworkingHelpers.swift in Sources */,
