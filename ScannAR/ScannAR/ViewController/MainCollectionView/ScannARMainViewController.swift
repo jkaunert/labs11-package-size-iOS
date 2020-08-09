@@ -205,20 +205,21 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
         
         switch segmentedControl.selectedSegmentIndex {
         case 1:
-            
-            scannARNetworkingController.getPackages(completion: { (results, error) in
-                
-                guard let results = results else {
-                    return
-                }
-               
-                self.coreDataImporter.syncPackages(packageRepresentations: results, completion: { (error) in
-                    
-                    DispatchQueue.main.async {
-                        self.collectionView.reloadData()
-                    }
-                })
-            })
+            segmentedControl.selectedSegmentIndex = -1
+            break
+//            scannARNetworkingController.getPackages(completion: { (results, error) in
+//
+//                guard let results = results else {
+//                    return
+//                }
+//
+//                self.coreDataImporter.syncPackages(packageRepresentations: results, completion: { (error) in
+//
+//                    DispatchQueue.main.async {
+//                        self.collectionView.reloadData()
+//                    }
+//                })
+//            })
         
         case 2:
             
@@ -237,7 +238,7 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
             }
             
         
-        default:
+        case 0:
             
             scannARNetworkingController.getProducts { (results, error) in
                 
@@ -254,6 +255,8 @@ class ScannARMainViewController: UIViewController, UICollectionViewDelegate, UIC
                 })
                 
             }
+            default:
+                break
         }
     }
     

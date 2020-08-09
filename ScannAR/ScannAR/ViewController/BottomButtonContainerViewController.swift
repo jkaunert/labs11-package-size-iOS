@@ -86,10 +86,17 @@ class BottomButtonContainerViewController: UIViewController, DelegatePasserDeleg
             mainCallToActionButton.setTitle("Track It", for: .normal)
             otherActionButton.setTitle("", for: .normal)
             buttonState = .trackingNumberEntered
+        
+        case .trackItTapped:
+            print("trackItTapped!")
             
         default:
-            guard let trackItTapped = delegate?.trackItTapped else { fatalError("Use Tracking Number Entered should be implemented and is not")}
-            trackItTapped()
+            if delegate?.trackItTapped?() != nil {
+                let trackItTapped = delegate?.trackItTapped
+                trackItTapped!()
+            }
+//            guard let trackItTapped = delegate?.trackItTapped else { fatalError("Use Tracking Number Entered should be implemented and is not")}
+//            trackItTapped()
         }
         
     }
@@ -134,4 +141,5 @@ enum ButtonState: String{
     case packageStart
     case shipItTapped
     case trackingNumberEntered
+    case trackItTapped
 }
