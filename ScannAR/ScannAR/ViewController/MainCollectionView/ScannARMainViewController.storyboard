@@ -118,7 +118,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sp6-fH-wpz">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="sp6-fH-wpz">
                                 <rect key="frame" x="8" y="8" width="359" height="41"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -126,7 +126,7 @@
                                 </constraints>
                                 <segments>
                                     <segment title="Products"/>
-                                    <segment title="Packages"/>
+                                    <segment title="" enabled="NO"/>
                                     <segment title="Shipments"/>
                                 </segments>
                                 <color key="tintColor" name="appARKADarkBlue"/>

@@ -20,7 +20,7 @@ class WalkthroughViewController: UIViewController, AlertOnboardingDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        arrayOfAlerts = [alert1, alert2, alert3, alert4]
+        arrayOfAlerts = [alert1, alert2, alert3, alert4, alert5]
         alertView = AlertOnboarding(arrayOfAlerts: arrayOfAlerts)
         alertView.delegate = self
         setupOnboarding()
@@ -40,7 +40,8 @@ class WalkthroughViewController: UIViewController, AlertOnboardingDelegate {
     let alert1 = Alert(image: UIImage(named: "scannarlogo_rev1")!, title: "ScannAR", text: "ScannAR is an app that uses augmented reality to track and right-size your shipping, helping you get more shipping done for less.")
     let alert2 = Alert(image: UIImage(named: "SCANIT")!, title: "Scan It", text: "Using your iPhone, scan any item with the ScannAR app. The ScannAR app will tell you the object's exact dimensions.")
     let alert3 = Alert(image: UIImage(named: "PACKIT")!, title:  "Pack It", text: "Now that you have your product's dimensions, ScannAR can tell you the perfect box size for the item.")
-    let alert4 = Alert(image: UIImage(named: "SHIPIT")!, title:  "Ship It", text: "Once you have selected your packaging, you are ready to ship. ScannAR will track you shipment for you.")
+    let alert4 = Alert(image: UIImage(named: "SHIPIT")!, title:  "Ship It", text: "Once you have selected your packaging, you are ready to ship.")
+    let alert5 = Alert(image: UIImage(named: "TRACKIT")!, title:  "Track It", text: "ScannAR will take care of tracking you shipment for you, notifying you automatically when the shipment is delivered.")
     
     
     // MARK: - Onboarding Private Methods
@@ -98,9 +99,11 @@ class WalkthroughViewController: UIViewController, AlertOnboardingDelegate {
     
     private let nextButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("SIGNIN", for: .normal)
+        button.setTitle("SIGN IN", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.titleLabel?.font  = UIFont.boldSystemFont(ofSize: 15)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        button.backgroundColor = UIColor(named: "appARKATeal")
+        button.layer.cornerRadius = 10.0
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(nextButtonClicked(_:)), for: .touchUpInside)
         return button
@@ -110,7 +113,7 @@ class WalkthroughViewController: UIViewController, AlertOnboardingDelegate {
     private let pageControl: UIPageControl = {
         let pc = UIPageControl()
         pc.currentPage = 0
-        pc.numberOfPages = 4
+        pc.numberOfPages = 5
         return pc
     }()
  
@@ -132,9 +135,7 @@ class WalkthroughViewController: UIViewController, AlertOnboardingDelegate {
 }
 
 extension WalkthroughViewController {
-    
     // Change the name of the storyboard if this is not "Main"
-    // identifier is the Storyboard ID that you put juste before
     class func instantiate() -> WalkthroughViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "WalkthroughViewControllerSB") as! WalkthroughViewController

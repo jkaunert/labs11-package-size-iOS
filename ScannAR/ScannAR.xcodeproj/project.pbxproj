@@ -274,7 +274,6 @@
 		AB519F6D2242C6CB00B27A8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB519F722242C6CB00B27A8B /* ScannARTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScannARTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB519F762242C6CB00B27A8B /* ScannARTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannARTests.swift; sourceTree = "<group>"; };
-		AB519F782242C6CB00B27A8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB519F7D2242C6CB00B27A8B /* ScannARUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScannARUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB519F812242C6CB00B27A8B /* ScannARUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannARUITests.swift; sourceTree = "<group>"; };
 		AB519F832242C6CB00B27A8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -881,7 +880,6 @@
 				D120FCDC226BD69B005464D1 /* CreatingBoxViewController.swift */,
 				D14F66BC225949AE0008DCF2 /* PickProductToPackViewController.swift */,
 				D14F66B82259416F0008DCF2 /* PickProductToPack.storyboard */,
-				AB519F782242C6CB00B27A8B /* Info.plist */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -1075,6 +1073,7 @@
 				D196E76C2256C6750012A3F7 /* Product */,
 				D196E76B2256C64B0012A3F7 /* Package */,
 				D196E76A2256C6310012A3F7 /* Shipment */,
+				DCD97AA724DC9C1B00053F95 /* MockShipment.swift */,
 				D1EAB23622492B0100720412 /* CoreDataStack.swift */,
 				D1698DAF224B14E700250E4D /* APICallType.swift */,
 				D1698DB1224B2D5600250E4D /* HTTPMethod.swift */,
@@ -1100,7 +1099,6 @@
 		DC57A02224DC8E9600926070 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
-				DCD97AA724DC9C1B00053F95 /* MockShipment.swift */,
 				DC57A02424DC8E9600926070 /* MapViewController.swift */,
 				DC57A01A24DC8E5700926070 /* MapDrawerTableViewCell.swift */,
 				DC57A02524DC8E9600926070 /* UIView+Layout.swift */,
