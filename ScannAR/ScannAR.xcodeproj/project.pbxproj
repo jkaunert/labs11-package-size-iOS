@@ -1087,6 +1087,7 @@
 		DC57A01424DC8E5700926070 /* DrawerView */ = {
 			isa = PBXGroup;
 			children = (
+				DC57A02324DC8E9600926070 /* DrawerViewController.swift */,
 				DC57A01524DC8E5700926070 /* DrawerView.swift */,
 				DC57A01624DC8E5700926070 /* DrawerPresentation.swift */,
 				DC57A01724DC8E5700926070 /* Extensions.swift */,
@@ -1099,7 +1100,6 @@
 		DC57A02224DC8E9600926070 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
-				DC57A02324DC8E9600926070 /* DrawerViewController.swift */,
 				DCD97AA724DC9C1B00053F95 /* MockShipment.swift */,
 				DC57A02424DC8E9600926070 /* MapViewController.swift */,
 				DC57A01A24DC8E5700926070 /* MapDrawerTableViewCell.swift */,

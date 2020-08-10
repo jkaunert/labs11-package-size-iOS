@@ -48,11 +48,12 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var locateButtonContainer: UIView!
     
-    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
     
+    @IBOutlet weak var doneButtonContainer: UIView!
     
     //MARK: - Actions ⚡️
-    @IBAction func closeButtonTapped(_ sender: Any) {
+    @IBAction func doneButtonTapped(_ sender: Any) {
                 print("button tapped")
                 UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
             }
@@ -88,6 +89,7 @@ class MapViewController: UIViewController {
         
         tableView.keyboardDismissMode = .onDrag
         
+        self.setupDoneButton()
         self.setupLocateButton()
         
         showDrawer(drawer: drawerView, animated: false)
@@ -133,7 +135,15 @@ class MapViewController: UIViewController {
         
         return .drawer(drawerView)
     }
-    
+    private func setupDoneButton() {
+        self.doneButtonContainer.layer.borderColor = UIColor(white: 0.2, alpha: 0.2).cgColor
+        self.doneButtonContainer.backgroundColor = UIColor(hue: 0.13, saturation: 0.03, brightness: 0.97, alpha: 1.0)
+        self.doneButtonContainer.layer.borderWidth = 0.5
+        self.doneButtonContainer.layer.cornerRadius = 8
+        self.doneButtonContainer.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.doneButtonContainer.layer.shadowRadius = 2
+        self.doneButtonContainer.layer.shadowOpacity = 0.1
+    }
     private func setupLocateButton() {
         let locateButton = MKUserTrackingButton(mapView: self.shipmentMapView)
         locateButton.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin]

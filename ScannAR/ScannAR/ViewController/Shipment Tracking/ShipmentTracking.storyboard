@@ -63,7 +63,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="closeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zfb-KT-qz9"/>
+                                    <action selector="doneButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zfb-KT-qz9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -86,7 +86,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="closeButton" destination="lwh-mI-gmH" id="wZE-Ay-hSc"/>
+                        <outlet property="doneButton" destination="lwh-mI-gmH" id="wZE-Ay-hSc"/>
+                        <outlet property="doneButtonContainer" destination="7dj-Ak-xNt" id="9E4-JH-rJP"/>
                         <outlet property="drawerView" destination="mwC-kI-aDG" id="yhv-8b-J59"/>
                         <outlet property="locateButtonContainer" destination="99Q-cW-ee3" id="IvI-sN-hTY"/>
                         <outlet property="searchBar" destination="Xp7-w4-h2V" id="yB4-eD-NyM"/>
